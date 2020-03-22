@@ -2,10 +2,7 @@ package pres.hjc.kotlinspringboot.aspect
 
 import com.alibaba.fastjson.JSONObject
 import org.aspectj.lang.JoinPoint
-import org.aspectj.lang.annotation.AfterReturning
-import org.aspectj.lang.annotation.Aspect
-import org.aspectj.lang.annotation.Before
-import org.aspectj.lang.annotation.Pointcut
+import org.aspectj.lang.annotation.*
 import org.slf4j.LoggerFactory
 import org.springframework.web.context.request.RequestContextHolder
 import org.springframework.web.context.request.ServletRequestAttributes
@@ -23,7 +20,7 @@ To change this template use File | Settings | File Templates.
 class AllLogAop {
 
     //@Autowired
-    val logger = LoggerFactory.getLogger(AllLogAop::class.java)
+    private val logger = LoggerFactory.getLogger(AllLogAop::class.java)
 
     @Pointcut("execution(public * pres.hjc.kotlinspringboot.controller.task..*.*(..))")
     fun logaop(){}
@@ -62,10 +59,32 @@ class AllLogAop {
         }*/
     }
 
-    @AfterReturning(returning = "resp" ,pointcut = "logaop()")
+    @AfterReturning(returning = "resp" ,pointcut = "logaop()") //return
     fun doAfter(resp:Any) = afterAction(resp)
 
-    fun afterAction(resp:Any){
+    private fun afterAction(resp:Any){
+        /*val elapsedTime = System.currentTimeMillis() - logRecord.createAt!!.time
+        logRecord.outParams = resp.toString()
+        logRecord.status = 0
+        logRecord.elapsedTime = elapsedTime
+        logRecordRepo.save(logRecord)
+        logger.info("ELAPSEDTIME: $elapsedTime")
+        logThread.remove()*/
+        logger.info("OUTPUT: $resp")
+        logger.info("=============================FINISH============================")
+    }
 
+    @AfterThrowing(pointcut = "logaop()" ,throwing = "e")
+    fun doAfterThrowing(joinPoint: JoinPoint ,e:Throwable){
+        logger.info("exception method: ${joinPoint.target.javaClass.name}.${joinPoint.signature.name}()")
+        logger.info("exception code: ${e.javaClass.name}")
+        logger.info("exception msg: ${e.message}")
+        /*val logRecord = logThread.get()
+        logRecord.errMsg = GlobalConfig.api.getExceptionMsg(e)
+        logRecord.status = -1
+        logRecord.description = e.javaClass.name
+        logRecordRepo.save(logRecord)
+        logThread.remove()*/
+        logger.info("=============================FINISH============================")
     }
 }
