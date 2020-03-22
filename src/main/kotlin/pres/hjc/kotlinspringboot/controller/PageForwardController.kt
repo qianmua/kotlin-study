@@ -18,4 +18,8 @@ class PageForwardController {
     fun index():String{
         return "index"
     }
+    @GetMapping("")
+    fun meun():String{
+        return "blog"
+    }
 }
