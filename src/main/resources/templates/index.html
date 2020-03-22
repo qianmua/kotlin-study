@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Hello, \(@^0^@)/</title>
+<!--        <link href='http://fonts.googleapis.com/css?family=Cabin:400,400italic,500,600,700' rel='stylesheet' type='text/css'>-->
+<!--		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>-->
+<!--		 Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" th:href="@{/html/css/custom.css}">
+		<script th:src="@{/html/js/jquery-2.1.0.min.js}"></script>
+		<script th:src="@{/html/js/modernizr-2.6.2.min.js}"></script>
+    </head>
+    <body class="home-page nav-transparent yo-anim-enabled">
+		<!--content-->
+<nav id="main-navbar" class="hidden-xs hidden-sm" th:fragment="nav">
+	<div class="nav hidden-xs">
+		<div class="main-reorder pull-right">
+			<a href="#">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+
+		<div class="logo pull-left">
+			<a href="index.html">
+				<figure>
+					<img th:src="@{/html/img/logo1.png}" class="light-logo" alt="Berg HTML Theme"/>
+					<img th:src="@{/html/img/logo2.png}" class="dark-logo" alt="Berg HTML Theme"/>
+				</figure>
+			</a>
+		</div>
+		<div class="main-nav">
+			<ul class="pull-right">
+				<li>
+					<a href="index.html" class="    active">home</a>
+					<div class="subnav">
+						<ul class="subnav-wrapper">
+							<li>
+								<a href="index.html" class="">parallax</a>
+							</li>							
+							<li>
+								<a href="index2.html" class="">fullscreen slider</a>
+							</li>							
+							<li>
+								<a href="index3.html" class="">video background</a>
+							</li>
+							<li>
+								<a href="index4.html" class="">static background</a>
+							</li>
+							<li>
+								<a href="index5.html" class="active">classic</a>
+							</li>							
+						</ul>
+					</div>					
+				</li>				
+				<li>
+					<a href="html/blog.html" class="">blog</a>
+					<div class="subnav">
+						<ul class="subnav-wrapper">
+							<li>
+								<a href="html/blog.html" class="">blog</a>
+							</li>
+							<li>
+								<a href="html/post.html" class="">post 1</a>
+							</li>
+							<li>
+								<a href="post2.html" class="">post 2</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="html/restaurant.html" class="">restaurant</a>
+				</li>
+				<li>
+					<a href="html/menu.html" class="hover-subnav ">menu</a>
+					<div class="subnav image-subnav">
+						<ul class="subnav-wrapper">			
+							<li>
+								<a href="html/menu.html#starters">starters</a>
+								<div>
+									<a href="html/menu.html#starters" class="menu-img" style="background-image: url('http://placehold.it/500x500')"></a>
+								</div>
+							</li>
+							<li>
+								<a href="html/menu.html#salads">salads</a>
+								<div>							
+									<a href="html/menu.html#salads" class="menu-img" style="background-image: url('http://placehold.it/500x500')"></a>
+								</div>
+							
+							</li>
+							<li>
+								<a href="html/menu.html#soups">soups</a>
+								<div>
+									<a href="html/menu.html#soups" class="menu-img" style="background-image: url('http://placehold.it/500x500')"></a>
+								</div>
+							</li>
+							<li>
+								<a href="html/menu.html#mains">mains</a>
+								<div>
+									<a href="html/menu.html#mains" class="menu-img" style="background-image: url('http://placehold.it/500x500')"></a>
+								</div>
+							</li>
+							<li>
+								<a href="html/menu.html#desserts">desserts</a>
+								<div>
+									<a href="html/menu.html#desserts" class="menu-img" style="background-image: url('http://placehold.it/500x500')"></a>
+								</div>
+							</li>
+							<li>
+								<a href="html/menu.html#drinks">drinks</a>
+								<div>							
+									<a href="html/menu.html#drinks" class="menu-img" style="background-image: url('http://placehold.it/500x500')"></a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</li>	
+				<li>
+					<a href="html/reservation.html" class="">reservation</a>
+				</li>
+				<li>
+					<a href="html/contact.html" class="">contact</a>
+				</li>
+				<li>
+					<a href="html/shop.html" class="">shop</a>
+				</li>
+				<li>
+					<a href="#" class="hover-subnav">pages</a>
+					<div class="subnav">
+						<ul class="subnav-wrapper ">
+							<li>
+								<a href="menu2.html" class="">second menu</a>
+							</li>
+							<li>
+								<a href="html/typography.html" class="">typography</a>
+							</li>
+							<li>
+								<a href="html/gallery.html" class="">gallery</a>
+							</li>						
+							<li>
+								<a href="html/fullscreen-intro.html">fullscreen intro</a>
+							</li>
+							<li>
+								<a href="html/top-intro.html">top header</a>
+							</li>
+							<li>
+								<a href="html/without-intro.html">no header</a>
+							</li>			
+						</ul>
+					</div>
+				</li>				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div id="mobile-nav" class="visible-xs visible-sm">
+	<header>
+		<div class="container-fluid">
+			<ul class="menu-header">
+				<li class="pull-left">
+					<a href="index.html" class="logo">
+						<figure>
+							<img th:src="@{/html/img/logo2.png}" alt="Berg HTML Theme"/>
+						</figure>
+					</a>
+				</li>
+				<li class="reorder pull-right"><a href="#" title=""><i class="fa fa-bars"></i></a></li>
+			</ul>
+		</div>
+	</header>	
+	<div class="" id="flyout-container">
+		<ul id="mobile-navbar" class="nav flyout-menu main-nav nav-height">
+			<li class="nav-item">
+				<a title="" href="index.html">home</a>
+			</li>
+			<li class="nav-item">
+				<a title="" href="html/blog.html">blog</a>
+				<span class="open-children"><i class="fa fa-angle-down"></i></span>
+				<ul class="subnav">
+					<li>
+						<a href="html/blog.html"><span>blog</span></a>
+					</li>
+					<li><a href="html/post.html" title=""><span>post 1</span></a></li>
+					<li><a th:href="@{/html/post2.html}" title=""><span>post 2</span></a></li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<a title="" href="html/restaurant.html">Restaurant</a>
+			</li>
+			<li class="nav-item">
+				<a title="" href="html/menu.html" class="">Menu</a>
+				<span class="open-children"><i class="fa fa-angle-down"></i></span>
+				<ul class="subnav">
+					<li><a href="html/menu.html" title=""><span>Menu 1</span></a></li>
+					<li><a href="menu2.html" title=""><span>Menu 2</span></a></li><li><a href="http://www.mobantu.com" title=""><span>more</span></a></li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<a title="" href="html/reservation.html">Reservation</a>
+			</li>
+			<li class="nav-item">
+				<a title="" href="html/contact.html">Contact</a>
+			</li>
+			<li class="nav-item">
+				<a title="" href="html/shop.html">Shop</a>
+			</li>
+			<li class="nav-item">
+				<a title="" href="html/gallery.html">Gallery</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+<header id="home4" class="main-section home hidden-xs" th:fragment="header">
+	<div class="home-fullscreen "> 
+		<div class="home-classic">
+			<div class="home-classic-wrapper">
+				<div class="basic-info static ">
+					<div class="container">
+						<img th:src="@{/html/img/logo18.png}" class="yo-anim yo-anim-fade" data-animation-delay="100"/>
+						<div class="col-md-12">
+							<div class="col-sm-6">
+
+								<a href="html/blog.html" class="btn btn-white btn-lg pull-right yo-anim yo-anim-fade" data-animation-delay="700">LATEST NEWS</a>
+							</div>
+							<div class="col-sm-6">
+
+								<a href="html/menu.html" class="btn btn-white btn-lg pull-left yo-anim yo-anim-fade" data-animation-delay="800">CHECK MENU</a>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+
+
+						<div class="open-daily col-md-3 yo-anim yo-anim-fade" data-animation-delay="200">
+							<span class="day">Monday - Thursday</span>
+							<span class="hours">7.00 - 21.00</span>
+						</div>
+						<div class="open-daily  col-md-3 yo-anim yo-anim-fade" data-animation-delay="300">
+							<span class="day">Friday - Sunday</span>
+							<span class="hours">7.00 - 23.00</span>
+						</div>
+						<div class="simple-contact  col-md-3 yo-anim yo-anim-fade" data-animation-delay="400">
+							<span class="address">Armii Krajowej 17</span>
+							<span class="postal-code">58-100 Świdnica</span>
+						</div>
+						<div class="simple-contact col-md-3 yo-anim yo-anim-fade" data-animation-delay="500">
+							<span class="mobile"><a href="#">+48 889 889 889</a></span>
+							<span class="email"><a href="#">restaurant@berg.com</a></span>
+						</div>
+						<ul class="social-icon yo-anim yo-anim-fade" data-animation-delay="1100" style="margin-top: 180px;">
+							<li>
+								<a href="#"><i class="fa fa-facebook"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-pinterest"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-google-plus"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-youtube"></i></a>
+							</li>
+						</ul>
+					</div>			
+				</div>
+			</div>
+		</div>
+		<div class="home-bg-image opacity-10"  style="background-image: url('html/img/bg.jpg');"></div>
+	</div>
+</header>
+<div class="visible-xs mobile-basic-info" th:fragment="footer">
+	<div id="footer-spacer"></div>
+<footer id="footer" class="text-center">
+	<a href="#" class="to-the-top">
+		<i class="fa fa-arrow-circle-o-up"></i>
+	</a>
+	<h2>Berg restaurant</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center v-card">
+
+					<div class="col-sm-6 col-lg-3">
+						<div class="open-daily">
+							<span class="day">Monday - Thursday</span>
+							<span class="hours">7.00 - 21.00</span>
+						</div>
+					</div>
+					<div class="col-sm-6 col-lg-3">	
+						<div class="open-daily">
+							<span class="day">Friday - Sunday</span>
+							<span class="hours">7.00 - 23.00</span>
+						</div>
+					</div>	
+					<div class="col-sm-6 col-lg-3">	
+						<div class="simple-contact">
+							<span class="address">Armii Krajowej 17</span>
+							<span class="postal-code">58-100 Świdnica</span>
+						</div>
+					</div>	
+					<div class="col-sm-6 col-lg-3">	
+						<div class="simple-contact">
+							<span class="mobile"><a href="#">+48 889 889 889</a></span>
+							<span class="email"><a href="#">restaurant@berg.com</a></span>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+			<ul class="social-icon clearfix">
+				<li>
+					<a href="#"><i class="fa fa-facebook"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-pinterest"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-google-plus"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-instagram"></i></a>
+				</li>
+			</ul>
+
+
+	<p class="copyrights">© 2014 <a href="index">Berg</a>. All Rights Reserved. </p>
+</footer>
+	<div class="home-bg-image"></div>
+		<div class="gallery-wrapper"></div>
+
+		<div id="preloader">
+			<div id="status">
+				<div class="loading-wrapper">
+					<img th:src="@{/html/img/logo2.png}" alt="Loading"/>
+				</div>
+			</div>
+			<div id="status-loaded"></div>
+		</div>
+		<script th:src="@{/html/js/browser.js}"></script>
+		<script th:src="@{/html/js/jquery.ba-throttle-debounce.min.js}"></script>
+		<script th:src="@{/html/js/jquery.smooth-scroll.js}"></script>
+		<script th:src="@{/html/js/matchmedia.js}"></script>
+		<script th:src="@{/html/js/enquire.min.js}"></script>
+		<script th:src="@{/html/js/jquery.velocity.min.js}"></script>
+		<script th:src="@{/html/js/waypoints.js}"></script>
+		<script th:src="@{/html/js/owl.carousel.js}"></script>
+		<script th:src="@{/html/js/jquery.mb.YTPlayer.js}"></script>
+		<script th:src="@{/html/js/jquery.parallaxify.js}"></script>
+		<script th:src="@{/html/js/jquery.imagesloaded.js}"></script>
+		<script th:src="@{/html/js/jquery.unveil.min.js}"></script>
+		<script th:src="@{/html/js/jquery.superslides.min.js}"></script>
+		<script th:src="@{/html/js/jquery.fullPage.min.js}"></script>
+		<script th:src="@{/html/js/jquery.mixitup.js}"></script>
+		<script th:src="@{/html/js/main.js}"></script>
+</div>
+    </body>
+</html>
