@@ -28,7 +28,6 @@ class AllLogAop {
     @Before("logaop()")
     fun doBefore(joinPoint: JoinPoint) = beforeAction(joinPoint,"log")
 
-
     private fun beforeAction(joinPoint: JoinPoint,aop:String){
         val attr = RequestContextHolder.currentRequestAttributes() as ServletRequestAttributes
         val request = attr.request
