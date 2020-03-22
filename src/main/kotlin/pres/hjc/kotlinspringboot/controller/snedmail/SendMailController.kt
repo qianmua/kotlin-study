@@ -23,12 +23,12 @@ class SendMailController(@Autowired private val javaMailSenderImpl: JavaMailSend
     @RequestMapping("t")
     @ResponseBody
     fun sendMail1():String{
-        val simpleMailMessager = SimpleMailMessage()
-        simpleMailMessager.setSubject("kotlin test2!")
-        simpleMailMessager.setText("this is a kotlin test page . thank you!")
-        simpleMailMessager.setTo("2674521520@qq.com")
-        simpleMailMessager.setFrom("2174521520@qq.com")
-        javaMailSenderImpl.send(simpleMailMessager)
+        val simpleMailMessage = SimpleMailMessage()
+        simpleMailMessage.setSubject("kotlin test2!")
+        simpleMailMessage.setText("this is a kotlin test page . thank you!")
+        simpleMailMessage.setTo("2674521520@qq.com")
+        simpleMailMessage.setFrom("2174521520@qq.com")
+        javaMailSenderImpl.send(simpleMailMessage)
         return "send message."
     }
 }
