@@ -3,6 +3,7 @@ package pres.hjc.kotlinspringboot.controller
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import pres.hjc.kotlinspringboot.tools.ConstantUtils
 
 /**
 Created by IntelliJ IDEA.
@@ -16,12 +17,20 @@ To change this template use File | Settings | File Templates.
 @RequestMapping("/ft")
 class PageForwardController {
 
+    companion object{
+        private const val suf = ConstantUtils.suffix
+    }
+
     @GetMapping("/")
     fun index():String{
         return "index"
     }
-    @GetMapping("")
-    fun meun():String{
-        return "blog"
+    @GetMapping("index$suf")
+    fun menu():String{
+        return "index"
+    }
+    @GetMapping("blog$suf")
+    fun blog():String{
+        return "html/blog"
     }
 }

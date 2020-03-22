@@ -16,8 +16,8 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-@EnableWebSecurity
-@Configuration
+//@EnableWebSecurity
+//@Configuration
 class MySecurityConfig : WebSecurityConfigurerAdapter() {
 
 //    @Autowired
