@@ -22,7 +22,6 @@ To change this template use File | Settings | File Templates.
  */
 
 @Controller
-@RequestMapping("/h")
 class InitController {
 
     val logging: Logger = LoggerFactory.getLogger(InitController::class.java)
@@ -30,7 +29,13 @@ class InitController {
     @Autowired
     lateinit var userServiceImpl: UserServiceImpl
 
-    @GetMapping("l")
+    @GetMapping("/")
+    fun index():String{
+        logging.info("index path /")
+        return "index"
+    }
+
+    /*@GetMapping("l")
     fun login(name:String,
               password:String,
               model:Model,
@@ -38,13 +43,13 @@ class InitController {
               response:HttpResource):String{
 
         return "html/login"
-    }
+    }*/
 
-    @RequestMapping("add")
+    /*@RequestMapping("add")
     fun insert(userModel: UserModel?):String{
 //        var l = userServiceImpl.insert(userModel)
         var user = userServiceImpl.login("111","111")
         logging.info(user?.toString())
         return "index"
-    }
+    }*/
 }
