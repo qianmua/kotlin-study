@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<meta charset="utf-8"> 
+		<meta charset="utf-8" th:replace="index::head">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Blog - BergTheme HTML</title>
 		<meta name="description" content="">
@@ -22,7 +22,7 @@
 		<!--content-->
 
 
-<nav id="main-navbar" class="hidden-xs hidden-sm">
+<nav id="main-navbar" class="hidden-xs hidden-sm" th:replace="index::nav">
 	<div class="nav hidden-xs">
 		<div class="main-reorder pull-right">
 			<a href="#">
@@ -331,7 +331,7 @@
 </section>
 
 <div id="footer-spacer"></div>
-<footer id="footer" class="text-center">
+<footer id="footer" class="text-center" th:replace="index::footer">
 
 	<a href="#" class="to-the-top">
 		<i class="fa fa-arrow-circle-o-up"></i>
@@ -389,7 +389,6 @@
 
 
 	<p class="copyrights">© 2014 <a href="index">Berg</a>. All Rights Reserved. </p>
-</footer>
 		<div class="gallery-wrapper"></div>
 
 		<div id="preloader">
@@ -417,5 +416,6 @@
 		<script src="js/jquery.fullPage.min.js"></script>
 		<script src="js/jquery.mixitup.js"></script>
 		<script src="js/main.js"></script>
+</footer>
 	</body>
 </html>
