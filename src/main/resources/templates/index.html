@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
+	<head th:fragment="head">
 		<meta charset="utf-8"> 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Hello, \(@^0^@)/</title>
@@ -54,7 +54,7 @@
 					</div>					
 				</li>				
 				<li>
-					<a th:href="@{/ft/html/blog.html}" class="">blog</a>
+					<a th:href="@{/ft/blog.html}" class="">blog</a>
 					<div class="subnav">
 						<ul class="subnav-wrapper">
 							<li>
@@ -117,13 +117,13 @@
 					</div>
 				</li>	
 				<li>
-					<a th:href="@{/ft/html/reservation.html}" class="">reservation</a>
+					<a th:href="@{/ft/reservation.html}" class="">reservation</a>
 				</li>
 				<li>
-					<a th:href="@{/ft/html/contact.html}" class="">contact</a>
+					<a th:href="@{/ft/contact.html}" class="">contact</a>
 				</li>
 				<li>
-					<a th:href="@{/ft/html/shop.html}" class="">shop</a>
+					<a th:href="@{/ft/shop.html}" class="">shop</a>
 				</li>
 				<li>
 					<a href="#" class="hover-subnav">pages</a>
@@ -133,19 +133,19 @@
 								<a href="menu2.html" class="">second menu</a>
 							</li>
 							<li>
-								<a th:href="@{/ft/html/typography.html}" class="">typography</a>
+								<a th:href="@{/ft/typography.html}" class="">typography</a>
 							</li>
 							<li>
-								<a th:href="@{/ft/html/gallery.html}" class="">gallery</a>
+								<a th:href="@{/ft/gallery.html}" class="">gallery</a>
 							</li>						
 							<li>
-								<a th:href="@{/ft/html/fullscreen-intro.html}">fullscreen intro</a>
+								<a th:href="@{/ft/fullscreen-intro.html}">fullscreen intro</a>
 							</li>
 							<li>
-								<a th:href="@{/ft/html/top-intro.html}">top header</a>
+								<a th:href="@{/ft/top-intro.html}">top header</a>
 							</li>
 							<li>
-								<a th:href="@{/ft/html/without-intro.html}">no header</a>
+								<a th:href="@{/ft/without-intro.html}">no header</a>
 							</li>			
 						</ul>
 					</div>
@@ -182,7 +182,7 @@
 						<a href="html/blog.html"><span>blog</span></a>
 					</li>
 					<li><a href="html/post.html" title=""><span>post 1</span></a></li>
-					<li><a th:href="@{ft/html/post.html}" title=""><span>post 2</span></a></li>
+					<li><a th:href="@{ft/post.html}" title=""><span>post 2</span></a></li>
 				</ul>
 			</li>
 			<li class="nav-item">
@@ -197,16 +197,16 @@
 				</ul>
 			</li>
 			<li class="nav-item">
-				<a title="" th:href="@{/ft/html/reservation.html}">Reservation</a>
+				<a title="" th:href="@{/ft/reservation.html}">Reservation</a>
 			</li>
 			<li class="nav-item">
-				<a title="" th:href="@{/ft/html/contact.html}">Contact</a>
+				<a title="" th:href="@{/ft/contact.html}">Contact</a>
 			</li>
 			<li class="nav-item">
-				<a title="" th:href="@{/ft/html/shop.html}">Shop</a>
+				<a title="" th:href="@{/ft/task.html}">Shop</a>
 			</li>
 			<li class="nav-item">
-				<a title="" th:href="@{/ft/html/gallery.html}">Gallery</a>
+				<a title="" th:href="@{/ft/gallery.html}">Gallery</a>
 			</li>
 		</ul>
 	</div>
@@ -274,9 +274,9 @@
 		<div class="home-bg-image opacity-10"  style="background-image: url('./html/img/bg.jpg');"></div>
 	</div>
 </header>
-<div class="visible-xs mobile-basic-info" th:fragment="footer">
+<div class="visible-xs mobile-basic-info" >
 	<div id="footer-spacer"></div>
-<footer id="footer" class="text-center">
+<footer id="footer" class="text-center" th:fragment="footer">
 	<a href="#" class="to-the-top">
 		<i class="fa fa-arrow-circle-o-up"></i>
 	</a>
@@ -332,7 +332,6 @@
 
 
 	<p class="copyrights">© 2014 <a href="index">Berg</a>. All Rights Reserved. </p>
-</footer>
 	<div class="home-bg-image"></div>
 		<div class="gallery-wrapper"></div>
 
@@ -360,6 +359,7 @@
 		<script th:src="@{/html/js/jquery.fullPage.min.js}"></script>
 		<script th:src="@{/html/js/jquery.mixitup.js}"></script>
 		<script th:src="@{/html/js/main.js}"></script>
+</footer>
 </div>
     </body>
 </html>

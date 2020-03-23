@@ -23,6 +23,7 @@ class PageForwardController {
 
     @GetMapping("/")
     fun index():String = "index"
+
     @GetMapping("index$suf")
     fun home():String = "index"
 
