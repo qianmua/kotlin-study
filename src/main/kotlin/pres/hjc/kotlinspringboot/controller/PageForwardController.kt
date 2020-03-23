@@ -22,15 +22,41 @@ class PageForwardController {
     }
 
     @GetMapping("/")
-    fun index():String{
-        return "index"
-    }
+    fun index():String = "index"
     @GetMapping("index$suf")
-    fun menu():String{
-        return "index"
-    }
+    fun home():String = "index"
+
     @GetMapping("blog$suf")
-    fun blog():String{
-        return "html/blog"
-    }
+    fun blog():String = "html/blog"
+
+    @GetMapping("restaurant$suf")
+    fun restaurant():String = "html/restaurant"
+
+    @GetMapping("menu$suf")
+    fun menu():String = "html/menu"
+
+    @GetMapping("reservation$suf")
+    fun res():String = "html/reservation"
+
+    @GetMapping("contact$suf")
+    fun cont():String = "html/contact"
+
+    @GetMapping("task$suf")
+    fun task():String = "html/shop"
+
+    @GetMapping("gallery$suf")
+    fun gallery():String = "html/gallery"
+
+    @GetMapping("typography$suf")
+    fun typo():String = "html/typography"
+
+    @GetMapping("fullscreen-intro$suf")
+    fun full():String = "html/fullscreen-intro"
+
+    @GetMapping("top-intro$suf")
+    fun top():String = "html/top-intro"
+
+    @GetMapping("without-intro$suf")
+    fun without():String = "html/without-intro"
+
 }

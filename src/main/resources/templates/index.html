@@ -32,7 +32,7 @@
 		<div class="main-nav">
 			<ul class="pull-right">
 				<li>
-					<a href="index.html" class="    active">home</a>
+					<a th:href="@{/ft/index.html}" class="    active">home</a>
 					<div class="subnav">
 						<ul class="subnav-wrapper">
 							<li>
@@ -54,7 +54,7 @@
 					</div>					
 				</li>				
 				<li>
-					<a href="html/blog.html" class="">blog</a>
+					<a th:href="@{/ft/html/blog.html}" class="">blog</a>
 					<div class="subnav">
 						<ul class="subnav-wrapper">
 							<li>
@@ -70,10 +70,10 @@
 					</div>
 				</li>
 				<li>
-					<a href="html/restaurant.html" class="">restaurant</a>
+					<a th:href="@{/ft/html/restaurant.html}" class="">restaurant</a>
 				</li>
 				<li>
-					<a href="html/menu.html" class="hover-subnav ">menu</a>
+					<a th:href="@{/ft/html/menu.html}" class="hover-subnav ">menu</a>
 					<div class="subnav image-subnav">
 						<ul class="subnav-wrapper">			
 							<li>
@@ -117,13 +117,13 @@
 					</div>
 				</li>	
 				<li>
-					<a href="html/reservation.html" class="">reservation</a>
+					<a th:href="@{/ft/html/reservation.html}" class="">reservation</a>
 				</li>
 				<li>
-					<a href="html/contact.html" class="">contact</a>
+					<a th:href="@{/ft/html/contact.html}" class="">contact</a>
 				</li>
 				<li>
-					<a href="html/shop.html" class="">shop</a>
+					<a th:href="@{/ft/html/shop.html}" class="">shop</a>
 				</li>
 				<li>
 					<a href="#" class="hover-subnav">pages</a>
@@ -133,19 +133,19 @@
 								<a href="menu2.html" class="">second menu</a>
 							</li>
 							<li>
-								<a href="html/typography.html" class="">typography</a>
+								<a th:href="@{/ft/html/typography.html}" class="">typography</a>
 							</li>
 							<li>
-								<a href="html/gallery.html" class="">gallery</a>
+								<a th:href="@{/ft/html/gallery.html}" class="">gallery</a>
 							</li>						
 							<li>
-								<a href="html/fullscreen-intro.html">fullscreen intro</a>
+								<a th:href="@{/ft/html/fullscreen-intro.html}">fullscreen intro</a>
 							</li>
 							<li>
-								<a href="html/top-intro.html">top header</a>
+								<a th:href="@{/ft/html/top-intro.html}">top header</a>
 							</li>
 							<li>
-								<a href="html/without-intro.html">no header</a>
+								<a th:href="@{/ft/html/without-intro.html}">no header</a>
 							</li>			
 						</ul>
 					</div>
@@ -182,7 +182,7 @@
 						<a href="html/blog.html"><span>blog</span></a>
 					</li>
 					<li><a href="html/post.html" title=""><span>post 1</span></a></li>
-					<li><a th:href="@{/html/post2.html}" title=""><span>post 2</span></a></li>
+					<li><a th:href="@{ft/html/post.html}" title=""><span>post 2</span></a></li>
 				</ul>
 			</li>
 			<li class="nav-item">
@@ -197,16 +197,16 @@
 				</ul>
 			</li>
 			<li class="nav-item">
-				<a title="" href="html/reservation.html">Reservation</a>
+				<a title="" th:href="@{/ft/html/reservation.html}">Reservation</a>
 			</li>
 			<li class="nav-item">
-				<a title="" href="html/contact.html">Contact</a>
+				<a title="" th:href="@{/ft/html/contact.html}">Contact</a>
 			</li>
 			<li class="nav-item">
-				<a title="" href="html/shop.html">Shop</a>
+				<a title="" th:href="@{/ft/html/shop.html}">Shop</a>
 			</li>
 			<li class="nav-item">
-				<a title="" href="html/gallery.html">Gallery</a>
+				<a title="" th:href="@{/ft/html/gallery.html}">Gallery</a>
 			</li>
 		</ul>
 	</div>
@@ -271,7 +271,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="home-bg-image opacity-10"  style="background-image: url('html/img/bg.jpg');"></div>
+		<div class="home-bg-image opacity-10"  style="background-image: url('./html/img/bg.jpg');"></div>
 	</div>
 </header>
 <div class="visible-xs mobile-basic-info" th:fragment="footer">
