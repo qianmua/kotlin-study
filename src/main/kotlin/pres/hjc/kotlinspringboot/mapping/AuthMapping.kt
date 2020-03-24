@@ -15,7 +15,7 @@ To change this template use File | Settings | File Templates.
 @Mapper
 interface AuthMapping {
 
-    @Select("select mid,url,auth from menus")
+    @Select(" select aid,url,roles from menus , auths")
     fun queryAllMenu():List<AuthModel>
 
 }

@@ -8,4 +8,4 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-class AuthModel(var mid:Long?, var url:String, var auth:String)
+class AuthModel(var aid:Long?, var url:String, var mid:Long?,var allRoles:List<MenuModel>?)
