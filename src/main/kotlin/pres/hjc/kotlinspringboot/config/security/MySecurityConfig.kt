@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import pres.hjc.kotlinspringboot.intercaptor.security.UserServiceConfig
 
 /**
 Created by IntelliJ IDEA.
@@ -16,12 +17,12 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-//@EnableWebSecurity
-//@Configuration
+@EnableWebSecurity
+@Configuration
 class MySecurityConfig : WebSecurityConfigurerAdapter() {
 
-//    @Autowired
-//    private lateinit var hrService:HrService
+    @Autowired
+    private lateinit var userService:UserServiceConfig
 
 
     /**
