@@ -2,8 +2,11 @@ package pres.hjc.kotlinspringboot.intercaptor.security
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.access.ConfigAttribute
+import org.springframework.security.web.FilterInvocation
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource
 import org.springframework.stereotype.Component
+import org.springframework.util.AntPathMatcher
+import pres.hjc.kotlinspringboot.service.impl.AuthServiceImpl
 
 /**
 Created by IntelliJ IDEA.
@@ -22,7 +25,9 @@ To change this template use File | Settings | File Templates.
 @Component
 class FilterSecurityMetadataSource:FilterInvocationSecurityMetadataSource {
     @Autowired
+    private lateinit var authServiceImpl: AuthServiceImpl
 
+    private val antPathMatcher:AntPathMatcher = AntPathMatcher()
 
     override fun getAllConfigAttributes(): MutableCollection<ConfigAttribute> {
         TODO("Not yet implemented")
@@ -33,7 +38,13 @@ class FilterSecurityMetadataSource:FilterInvocationSecurityMetadataSource {
     }
 
     override fun getAttributes(p0: Any?): MutableCollection<ConfigAttribute> {
-        TODO("Not yet implemented")
+        val getRequestUrl = (p0 as FilterInvocation).requestUrl
+        val allMenu = authServiceImpl.queryAllMenu()
+        allMenu?.forEach {
+            if (antPathMatcher.match(it.url , getRequestUrl) && it.auth?.length > 0){
+
+            }
+        }
     }
 
 }

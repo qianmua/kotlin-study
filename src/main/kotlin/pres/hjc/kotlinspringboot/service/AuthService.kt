@@ -1,21 +1,15 @@
-package pres.hjc.kotlinspringboot.mapping
+package pres.hjc.kotlinspringboot.service
 
-import org.apache.ibatis.annotations.Mapper
-import org.apache.ibatis.annotations.Select
 import pres.hjc.kotlinspringboot.entity.AuthModel
 
 /**
 Created by IntelliJ IDEA.
 @author HJC
 @date 2020/3/24
-@time 12:57
+@time 13:07
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-@Mapper
-interface AuthMapping {
-
-    @Select("select mid,url,auth from menus")
+interface AuthService {
     fun queryAllMenu():List<AuthModel>
-
 }
