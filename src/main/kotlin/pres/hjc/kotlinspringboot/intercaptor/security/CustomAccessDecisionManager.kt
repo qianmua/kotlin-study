@@ -33,8 +33,14 @@ class CustomAccessDecisionManager:AccessDecisionManager{
      * @Param: [auth, object, cas]
      * @return: void
      **/
-    override fun decide(p0: Authentication?, p1: Any?, p2: MutableCollection<ConfigAttribute>?) {
-        //
+    override fun decide(p0: Authentication?, p1: Any?, p2: MutableCollection<ConfigAttribute>) {
+        val iterator:Iterator<ConfigAttribute> = p2.iterator()
+        while (iterator.hasNext()){
+            if (p0 == null) println("auth filed")
+            val ca:ConfigAttribute = iterator.next()
+            //当前权限
+
+        }
     }
 
     override fun supports(p0: ConfigAttribute?): Boolean = true
