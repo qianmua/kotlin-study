@@ -2,6 +2,7 @@ package pres.hjc.kotlinspringboot.intercaptor.security
 
 import org.springframework.security.access.AccessDecisionManager
 import org.springframework.security.access.ConfigAttribute
+import org.springframework.security.authentication.AnonymousAuthenticationToken
 import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Component
 
@@ -39,6 +40,9 @@ class CustomAccessDecisionManager:AccessDecisionManager{
             if (p0 == null) println("auth filed")
             val ca:ConfigAttribute = iterator.next()
             //当前权限
+            val auth = ca.attribute
+            if ("ROLE_LOGIN".equals(auth))  if (p0 is AnonymousAuthenticationToken )println("no info") else return
+
 
         }
     }
