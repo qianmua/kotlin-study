@@ -30,6 +30,20 @@ class MySecurityConfig : WebSecurityConfigurerAdapter() {
      */
     override fun configure(http: HttpSecurity?) {
 //        super.configure(http)
+        http!!.authorizeRequests()
+                /*.withObjectPostProcessor()*/
+                .and()
+                .formLogin().loginPage("/html/login.html")
+                .loginProcessingUrl("/html/login.html")
+                .usernameParameter("username")
+                .passwordParameter("password")
+                /*.failureHandler()
+                .successHandler()*/
+                .permitAll()
+                .and()
+                .logout().logoutUrl("/html/logout")
+                .permitAll()
+                .and().csrf().disable()
 
     }
 
