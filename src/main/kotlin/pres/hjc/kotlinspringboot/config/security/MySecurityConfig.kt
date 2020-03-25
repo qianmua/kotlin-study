@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import pres.hjc.kotlinspringboot.intercaptor.security.UserServiceConfig
 
 /**
@@ -26,8 +27,15 @@ class MySecurityConfig : WebSecurityConfigurerAdapter() {
 
 
     /**
-     * main
-     */
+     * @Author: Galen
+     * @Description: HttpSecurity包含了原数据（主要是url）
+     * 通过withObjectPostProcessor将MyFilterInvocationSecurityMetadataSource和MyAccessDecisionManager注入进来
+     * 此url先被MyFilterInvocationSecurityMetadataSource处理，然后 丢给 MyAccessDecisionManager处理
+     * 如果不匹配，返回 MyAccessDeniedHandler
+     * @Date: 2019/3/27-17:41
+     * @Param: [http]
+     * @return: void
+     **/
     override fun configure(http: HttpSecurity?) {
 //        super.configure(http)
         http!!.authorizeRequests()
@@ -52,6 +60,7 @@ class MySecurityConfig : WebSecurityConfigurerAdapter() {
      */
     override fun configure(auth: AuthenticationManagerBuilder?) {
 //        super.configure(auth)
+        auth!!.userDetailsService(userService).passwordEncoder(BCryptPasswordEncoder())
     }
 
     /**
@@ -59,6 +68,8 @@ class MySecurityConfig : WebSecurityConfigurerAdapter() {
      */
     override fun configure(web: WebSecurity?) {
 //        super.configure(web)
+        web!!.ignoring().antMatchers("/index.html","static/**","/login","favicon.ico")
+                .antMatchers("/swagger-ui.html", "/swagger-resources/**", "/images/**", "/webjars/**", "/v2/api-docs", "/configuration/ui", "/configuration/security")
     }
 
 
