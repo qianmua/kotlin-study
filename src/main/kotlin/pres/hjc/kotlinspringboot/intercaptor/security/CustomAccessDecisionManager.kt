@@ -41,7 +41,7 @@ class CustomAccessDecisionManager:AccessDecisionManager{
             val ca:ConfigAttribute = iterator.next()
             //当前权限
             val auth = ca.attribute
-            if ("ROLE_LOGIN".equals(auth))  if (p0 is AnonymousAuthenticationToken )println("no info") else return
+            if ("ROLE_LOGIN" == auth)  if (p0 is AnonymousAuthenticationToken )println("no info") else return
 
 
         }

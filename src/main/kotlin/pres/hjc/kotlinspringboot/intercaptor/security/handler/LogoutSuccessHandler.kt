@@ -1,5 +1,11 @@
 package pres.hjc.kotlinspringboot.intercaptor.security.handler
 
+import org.springframework.security.core.Authentication
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
+
+
 /**
 Created by IntelliJ IDEA.
 @author HJC
@@ -8,5 +14,11 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-class LogoutSuccessHandler {
+
+
+class LogoutSuccessHandler:LogoutSuccessHandler{
+    override fun onLogoutSuccess(p0: HttpServletRequest?, p1: HttpServletResponse?, p2: Authentication?) {
+        println("注销")
+    }
+
 }
