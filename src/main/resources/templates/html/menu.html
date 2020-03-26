@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8"> 
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="index::head">
+		<!--<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Menu - BergTheme HTML</title>
 		<meta name="description" content="">
@@ -10,10 +10,10 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
 		<link href='http://fonts.googleapis.com/css?family=Cabin:400,400italic,500,600,700' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<!--		 Place favicon.ico and apple-touch-icon.png in the root directory -->
+&lt;!&ndash;		 Place favicon.ico and apple-touch-icon.png in the root directory &ndash;&gt;
 		<link rel="stylesheet" href="css/custom.css">
 		<script src="js/jquery-2.1.0.min.js"></script>
-		<script src="js/modernizr-2.6.2.min.js"></script>
+		<script src="js/modernizr-2.6.2.min.js"></script>-->
 		
 
     </head>
@@ -22,8 +22,8 @@
 		<!--content-->
 
 
-<nav id="main-navbar" class="hidden-xs hidden-sm">
-	<div class="nav hidden-xs">
+<nav id="main-navbar" class="hidden-xs hidden-sm" th:replace="index::nav">
+	<!--<div class="nav hidden-xs">
 		<div class="main-reorder pull-right">
 			<a href="#">
 				<i class="fa fa-bars"></i>
@@ -161,7 +161,7 @@
 				</li>				
 			</ul>
 		</div>
-	</div>
+	</div>-->
 </nav>
 <div id="mobile-nav" class="visible-xs visible-sm">
 	<header>
@@ -1160,91 +1160,92 @@
 </section>
 
 <div id="footer-spacer"></div>
-<footer id="footer" class="text-center">
+<footer id="footer" class="text-center" th:replace="index::footer">
+    <!--
+        <a href="#" class="to-the-top">
+            <i class="fa fa-arrow-circle-o-up"></i>
+        </a>
 
-	<a href="#" class="to-the-top">
-		<i class="fa fa-arrow-circle-o-up"></i>
-	</a>
+        <h2>Berg restaurant</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center v-card">
 
-	<h2>Berg restaurant</h2>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2 text-center v-card">
-
-					<div class="col-sm-6 col-lg-3">
-						<div class="open-daily">
-							<span class="day">Monday - Thursday</span>
-							<span class="hours">7.00 - 21.00</span>
-						</div>
-					</div>
-					<div class="col-sm-6 col-lg-3">	
-						<div class="open-daily">
-							<span class="day">Friday - Sunday</span>
-							<span class="hours">7.00 - 23.00</span>
-						</div>
-					</div>	
-					<div class="col-sm-6 col-lg-3">	
-						<div class="simple-contact">
-							<span class="address">Armii Krajowej 17</span>
-							<span class="postal-code">58-100 Świdnica</span>
-						</div>
-					</div>	
-					<div class="col-sm-6 col-lg-3">	
-						<div class="simple-contact">
-							<span class="mobile"><a href="#">+48 889 889 889</a></span>
-							<span class="email"><a href="#">restaurant@berg.com</a></span>
-						</div>
-					</div>
-			</div>
-		</div>
-	</div>
-			<ul class="social-icon clearfix">
-				<li>
-					<a href="#"><i class="fa fa-facebook"></i></a>
-				</li>
-				<li>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-				</li>
-				<li>
-					<a href="#"><i class="fa fa-pinterest"></i></a>
-				</li>
-				<li>
-					<a href="#"><i class="fa fa-google-plus"></i></a>
-				</li>
-				<li>
-					<a href="#"><i class="fa fa-instagram"></i></a>
-				</li>
-			</ul>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="open-daily">
+                                <span class="day">Monday - Thursday</span>
+                                <span class="hours">7.00 - 21.00</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="open-daily">
+                                <span class="day">Friday - Sunday</span>
+                                <span class="hours">7.00 - 23.00</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="simple-contact">
+                                <span class="address">Armii Krajowej 17</span>
+                                <span class="postal-code">58-100 Świdnica</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="simple-contact">
+                                <span class="mobile"><a href="#">+48 889 889 889</a></span>
+                                <span class="email"><a href="#">restaurant@berg.com</a></span>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+                <ul class="social-icon clearfix">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                </ul>
 
 
-	<p class="copyrights">© 2014 <a href="index">Berg</a>. All Rights Reserved. </p>
+        <p class="copyrights">© 2014 <a href="index">Berg</a>. All Rights Reserved. </p>
+            <div class="gallery-wrapper"></div>
+
+            <div id="preloader">
+                <div id="status">
+                    <div class="loading-wrapper">
+                        <img src="img/logo2.png" alt="Loading"/>
+                    </div>
+                </div>
+                <div id="status-loaded"></div>
+            </div>
+
+            <script src="js/browser.js"></script>
+            <script src="js/jquery.ba-throttle-debounce.min.js"></script>
+            <script src="js/jquery.smooth-scroll.js"></script>
+            <script src="js/matchmedia.js"></script>
+            <script src="js/enquire.min.js"></script>
+            <script src="js/jquery.velocity.min.js"></script>
+            <script src="js/waypoints.js"></script>
+            <script src="js/owl.carousel.js"></script>
+            <script src="js/jquery.mb.YTPlayer.js"></script>
+            <script src="js/jquery.parallaxify.js"></script>
+            <script src="js/jquery.imagesloaded.js"></script>
+            <script src="js/jquery.unveil.min.js"></script>
+            <script src="js/jquery.superslides.min.js"></script>
+            <script src="js/jquery.fullPage.min.js"></script>
+            <script src="js/jquery.mixitup.js"></script>
+            <script src="js/main.js"></script>-->
 </footer>
-		<div class="gallery-wrapper"></div>
 
-		<div id="preloader">
-			<div id="status">
-				<div class="loading-wrapper">
-					<img src="img/logo2.png" alt="Loading"/>
-				</div>
-			</div>
-			<div id="status-loaded"></div>
-		</div>
-
-		<script src="js/browser.js"></script>
-		<script src="js/jquery.ba-throttle-debounce.min.js"></script>
-		<script src="js/jquery.smooth-scroll.js"></script>
-		<script src="js/matchmedia.js"></script>
-		<script src="js/enquire.min.js"></script>
-		<script src="js/jquery.velocity.min.js"></script>
-		<script src="js/waypoints.js"></script>		
-		<script src="js/owl.carousel.js"></script>
-		<script src="js/jquery.mb.YTPlayer.js"></script>
-		<script src="js/jquery.parallaxify.js"></script>
-		<script src="js/jquery.imagesloaded.js"></script>
-		<script src="js/jquery.unveil.min.js"></script>
-		<script src="js/jquery.superslides.min.js"></script>
-		<script src="js/jquery.fullPage.min.js"></script>
-		<script src="js/jquery.mixitup.js"></script>
-		<script src="js/main.js"></script>
-	</body>
+    </body>
 </html>
