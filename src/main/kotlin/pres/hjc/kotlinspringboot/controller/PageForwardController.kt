@@ -30,6 +30,12 @@ class PageForwardController {
     @GetMapping("blog$suf")
     fun blog():String = "html/blog"
 
+    @GetMapping("post$suf")
+    fun post():String = "html/post"
+
+    @GetMapping("post2$suf")
+    fun post2():String = "html/post2"
+
     @GetMapping("restaurant$suf")
     fun restaurant():String = "html/restaurant"
 
@@ -60,4 +66,12 @@ class PageForwardController {
     @GetMapping("without-intro$suf")
     fun without():String = "html/without-intro"
 
+    @GetMapping("cart$suf")
+    fun cart():String = "html/cart"
+
+    @GetMapping("product$suf")
+    fun prod():String = "html/product"
+
+    @GetMapping("shop$suf")
+    fun shop():String = "html/shop"
 }
