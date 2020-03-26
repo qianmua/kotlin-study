@@ -10,9 +10,9 @@ To change this template use File | Settings | File Templates.
  */
 class InitConfig {
 
-    fun f(){
+    /*fun f(){
         val a = InitConfig::class.java
         println(a.name)
-    }
+    }*/
 
 }
