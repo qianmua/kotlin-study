@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="utf-8" th:replace="index::head">
+	<head th:replace="index::head">
+		<meta charset="utf-8" >
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Blog - BergTheme HTML</title>
 		<meta name="description" content="">
 		<meta name="msapplication-tap-highlight" content="yes" />
-
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
-		<link href='http://fonts.googleapis.com/css?family=Cabin:400,400italic,500,600,700' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<!--		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />-->
+<!--		<link href='http://fonts.googleapis.com/css?family=Cabin:400,400italic,500,600,700' rel='stylesheet' type='text/css'>-->
+<!--		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>-->
 <!--		 Place favicon.ico and apple-touch-icon.png in the root directory -->
-		<link rel="stylesheet" href="css/custom.css">
-		<script src="js/jquery-2.1.0.min.js"></script>
-		<script src="js/modernizr-2.6.2.min.js"></script>
-		
-
+<!--		<link rel="stylesheet" href="css/custom.css">-->
+<!--		<script src="js/jquery-2.1.0.min.js"></script>-->
+<!--		<script src="js/modernizr-2.6.2.min.js"></script>-->
     </head>
     <body class="intro-fullscreen fixed-footer yo-anim-enabled">
-
 		<!--content-->
-
-
 <nav id="main-navbar" class="hidden-xs hidden-sm" th:replace="index::nav">
-	<div class="nav hidden-xs">
+	<!--<div class="nav hidden-xs">
 		<div class="main-reorder pull-right">
 			<a href="#">
 				<i class="fa fa-bars"></i>
@@ -161,7 +155,7 @@
 				</li>				
 			</ul>
 		</div>
-	</div>
+	</div>-->
 </nav>
 <div id="mobile-nav" class="visible-xs visible-sm">
 	<header>
@@ -170,7 +164,7 @@
 				<li class="pull-left">
 					<a href="../index.html" class="logo">
 						<figure>
-							<img src="img/logo2.png" alt="Berg HTML Theme"/>
+							<img th:src="@{/html/img/logo2.png}" alt="Berg HTML Theme"/>
 						</figure>
 					</a>
 				</li>
@@ -332,7 +326,7 @@
 
 <div id="footer-spacer"></div>
 <footer id="footer" class="text-center" th:replace="index::footer">
-
+<!--
 	<a href="#" class="to-the-top">
 		<i class="fa fa-arrow-circle-o-up"></i>
 	</a>
@@ -415,7 +409,7 @@
 		<script src="js/jquery.superslides.min.js"></script>
 		<script src="js/jquery.fullPage.min.js"></script>
 		<script src="js/jquery.mixitup.js"></script>
-		<script src="js/main.js"></script>
+		<script src="js/main.js"></script>-->
 </footer>
 	</body>
 </html>

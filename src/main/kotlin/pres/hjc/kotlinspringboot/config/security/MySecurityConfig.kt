@@ -68,7 +68,7 @@ class MySecurityConfig : WebSecurityConfigurerAdapter() {
      */
     override fun configure(web: WebSecurity?) {
 //        super.configure(web)
-        web!!.ignoring().antMatchers("/index.html","static/**","/login","favicon.ico")
+        web!!.ignoring().antMatchers("/index.html","static/**","/login","/favicon.ico" , "/ft/**")
                 .antMatchers("/swagger-ui.html", "/swagger-resources/**", "/images/**", "/webjars/**", "/v2/api-docs", "/configuration/ui", "/configuration/security")
     }
 

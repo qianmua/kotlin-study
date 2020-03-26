@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 	<head th:fragment="head">
 		<meta charset="utf-8"> 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,8 @@
 <!--		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>-->
 <!--		 Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" th:href="@{/html/css/custom.css}">
+        <link rel="shortcut icon" th:href="@{/favicon.ico}">
+        <link rel="bookmark" th:href="@{/favicon.ico}">
 		<script th:src="@{/html/js/jquery-2.1.0.min.js}"></script>
 		<script th:src="@{/html/js/modernizr-2.6.2.min.js}"></script>
     </head>
@@ -33,7 +35,7 @@
 			<ul class="pull-right">
 				<li>
 					<a th:href="@{/ft/index.html}" class="    active">home</a>
-					<div class="subnav">
+					<!--<div class="subnav">
 						<ul class="subnav-wrapper">
 							<li>
 								<a href="index.html" class="">parallax</a>
@@ -51,7 +53,7 @@
 								<a href="index5.html" class="active">classic</a>
 							</li>							
 						</ul>
-					</div>					
+					</div>	-->
 				</li>				
 				<li>
 					<a th:href="@{/ft/blog.html}" class="">blog</a>
@@ -224,11 +226,11 @@
 						<div class="col-md-12">
 							<div class="col-sm-6">
 
-								<a href="html/blog.html" class="btn btn-white btn-lg pull-right yo-anim yo-anim-fade" data-animation-delay="700">LATEST NEWS</a>
+								<a th:href="@{/ft/blog.html}" class="btn btn-white btn-lg pull-right yo-anim yo-anim-fade" data-animation-delay="700">LATEST NEWS</a>
 							</div>
 							<div class="col-sm-6">
 
-								<a href="html/menu.html" class="btn btn-white btn-lg pull-left yo-anim yo-anim-fade" data-animation-delay="800">CHECK MENU</a>
+								<a th:href="@{/ft/menu.html}" class="btn btn-white btn-lg pull-left yo-anim yo-anim-fade" data-animation-delay="800">CHECK MENU</a>
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -247,8 +249,8 @@
 							<span class="postal-code">58-100 Świdnica</span>
 						</div>
 						<div class="simple-contact col-md-3 yo-anim yo-anim-fade" data-animation-delay="500">
-							<span class="mobile"><a href="#">+48 889 889 889</a></span>
-							<span class="email"><a href="#">restaurant@berg.com</a></span>
+							<span class="searchqq"><a href="#">2674521520</a></span>
+							<span class="email"><a href="#">hjcwyhasgo@163.com</a></span>
 						</div>
 						<ul class="social-icon yo-anim yo-anim-fade" data-animation-delay="1100" style="margin-top: 180px;">
 							<li>
@@ -271,7 +273,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="home-bg-image opacity-10"  style="background-image: url('./html/img/bg.jpg');"></div>
+		<div class="home-bg-image opacity-10 bg-image-url"></div>
 	</div>
 </header>
 <div class="visible-xs mobile-basic-info" >
@@ -331,7 +333,7 @@
 			</ul>
 
 
-	<p class="copyrights">© 2014 <a href="index">Berg</a>. All Rights Reserved. </p>
+	<p class="copyrights">© 2014 <a href="#">Berg</a>. All Rights Reserved. </p>
 	<div class="home-bg-image"></div>
 		<div class="gallery-wrapper"></div>
 
