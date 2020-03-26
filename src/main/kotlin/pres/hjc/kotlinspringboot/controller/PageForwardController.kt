@@ -2,6 +2,7 @@ package pres.hjc.kotlinspringboot.controller
 
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import pres.hjc.kotlinspringboot.tools.ConstantUtils
 
@@ -33,6 +34,11 @@ class PageForwardController {
     @GetMapping("post$suf")
     fun post():String = "html/post"
 
+    @GetMapping("post$suf/{id}")
+    fun postIdPost(@PathVariable("id") id:String):String  = when(id){
+        "post" -> "forward:/html/post/html#post"
+        else -> "html/post"
+    }
     @GetMapping("post2$suf")
     fun post2():String = "html/post2"
 
