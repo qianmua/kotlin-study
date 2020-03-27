@@ -36,7 +36,12 @@ class PageForwardController {
 
     @GetMapping("post$suf/{id}")
     fun postIdPost(@PathVariable("id") id:String):String  = when(id){
-        "post" -> "forward:/html/post/html#post"
+        "starters" -> "forward:/html/post/html#starters"
+        "salads" -> "forward:/html/post/html#salads"
+        "soups" -> "forward:/html/post/html#soups"
+        "mains" -> "forward:/html/post/html#mains"
+        "desserts" -> "forward:/html/post/html#desserts"
+        "drinks" -> "forward:/html/post/html#drinks"
         else -> "html/post"
     }
     @GetMapping("post2$suf")

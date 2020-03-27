@@ -15,7 +15,12 @@ To change this template use File | Settings | File Templates.
 @Mapper
 interface UserMapping {
 
-    @Select("select * from user where name = #{name} and password = #{password}")
+    /**
+     * 增强字符串
+     */
+    @Select("""
+        select * from user where name = #{name} and password = #{password}
+        """)
     fun login(@Param("name")name:String ,@Param("password")password:String):UserModel
 
     @Select("select * from user where name = #{name}")
