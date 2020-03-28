@@ -1,5 +1,9 @@
 package pres.hjc.kotlinspringboot.tools
 
+import eu.bitwalker.useragentutils.Browser
+import eu.bitwalker.useragentutils.OperatingSystem
+import eu.bitwalker.useragentutils.UserAgent
+import eu.bitwalker.useragentutils.Version
 import java.net.InetAddress
 import java.net.UnknownHostException
 import javax.servlet.http.HttpServletRequest
@@ -18,7 +22,7 @@ object PublicToolsUtils {
     /**
      * 得到用户Ip
      */
-    fun getIpAddress(request: HttpServletRequest):String{
+    fun getIpAddress(request: HttpServletRequest):String?{
         var ip:String = request.getHeader("x-forwarded-for")
         if (ip == null || ip.isEmpty() || "unknown".equals(ip,true)) {
             ip = request.getHeader("Proxy-Client-IP")
@@ -51,7 +55,7 @@ object PublicToolsUtils {
     /**
      * 得到用户浏览器类型
      */
-    fun getBrowserType(request: HttpServletRequest):String{
+    fun getBrowserType(request: HttpServletRequest):String?{
         var type = "ie"
         val name:String = request.getHeader("USER-AGENT").toLowerCase()
         if (name.indexOf("msie") > 0) type = "ie"
@@ -60,6 +64,37 @@ object PublicToolsUtils {
         if (name.indexOf("opera") > 0) type = "opera"
         if (name.indexOf("gecko") > 0 && name.indexOf("rv:11")>0) type = "ie11"
         return type
+    }
+
+    /**
+     * 得到浏览器类型
+     */
+    fun getBrowserName(request: HttpServletRequest):String?{
+        val header:String? = request.getHeader("user-agent")
+        val agent:UserAgent? = UserAgent.parseUserAgentString(header)
+        val browser:Browser? = agent?.browser
+        return browser?.name
+    }
+
+    /**
+     * 得到浏览器版本号
+     */
+    fun getRrowserVersion(request: HttpServletRequest):String?{
+        val header = request.getHeader("user-agent")
+        val agent:UserAgent? = UserAgent.parseUserAgentString(header)
+        val browser:Browser? = agent?.browser
+        val version:Version? = browser?.getVersion(header)
+        return version?.version
+    }
+
+    /**
+     * 得到操作系统类型
+     */
+    fun getOsName(request: HttpServletRequest):String?{
+        val header = request.getHeader("user-agent")
+        val agent:UserAgent? = UserAgent.parseUserAgentString(header)
+        val os:OperatingSystem? = agent?.operatingSystem
+        return os?.name
     }
 
 }
