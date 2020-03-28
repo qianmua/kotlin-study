@@ -23,7 +23,7 @@ To change this template use File | Settings | File Templates.
  **/
 class AccessDeniedHandler:AccessDeniedHandler {
     override fun handle(p0: HttpServletRequest?, p1: HttpServletResponse?, p2: AccessDeniedException?) {
-        p1!!.setStatus(HttpServletResponse.SC_FORBIDDEN)
+        p1!!.status = HttpServletResponse.SC_FORBIDDEN
         val write:PrintWriter? = p1?.writer
         write!!.write("权限不足")
         write.flush()

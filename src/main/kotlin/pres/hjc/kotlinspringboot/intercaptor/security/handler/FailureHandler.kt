@@ -29,7 +29,7 @@ class FailureHandler:AuthenticationFailureHandler{
             error = "账户名或者密码错误"
         else
             error = "登录失败"
-        p1!!.setStatus(401)
+        p1!!.status = 401
     }
 }
 
