@@ -17,6 +17,9 @@ class ConstantUtils {
         const val SWAGGER_BASE_PACKAGE = "pres.hjc.kotlinspringboot.controller"
         const val SWAGGER_VERSION = "1.0.0"
 
+        //盐
+
+        const val BASE_NUMBER = "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
     }
 
 }
