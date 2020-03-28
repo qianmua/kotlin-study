@@ -64,6 +64,7 @@ class MySecurityConfig : WebSecurityConfigurerAdapter() {
     }
 
     /**
+     * 白名单
      * 配置资源拦截
      */
     override fun configure(web: WebSecurity?) {

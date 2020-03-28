@@ -12,6 +12,11 @@ class ConstantUtils {
 
     companion object{
         const val suffix = ".html"
+
+        // swagger
+        const val SWAGGER_BASE_PACKAGE = "pres.hjc.kotlinspringboot.controller"
+        const val SWAGGER_VERSION = "1.0.0"
+
     }
 
 }
