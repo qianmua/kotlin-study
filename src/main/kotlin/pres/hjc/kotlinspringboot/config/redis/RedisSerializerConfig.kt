@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect
 import com.fasterxml.jackson.annotation.PropertyAccessor
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator
+import org.slf4j.LoggerFactory
 import org.springframework.cache.CacheManager
 import org.springframework.cache.annotation.CachingConfigurerSupport
 import org.springframework.cache.annotation.EnableCaching
@@ -30,11 +31,13 @@ To change this template use File | Settings | File Templates.
 @EnableCaching
 class RedisSerializerConfig :CachingConfigurerSupport(){
 
+    private  val log by lazy { LoggerFactory.getLogger(RedisSerializerConfig::class.java) }
     /**
      * redis序列化
      */
     @Bean
     fun redisTemplate(redisConnection:RedisConnectionFactory?):RedisTemplate<Any,Any>{
+        log.info("redis Template..")
         val template = RedisTemplate<Any,Any>()
         template.setConnectionFactory(redisConnection!!)
         //使用Jackson2JsonRedisSerializer来序列化和反序列化redis的value值
@@ -57,6 +60,7 @@ class RedisSerializerConfig :CachingConfigurerSupport(){
      * chahe缓存
      */
     fun cacheManager(redisConnection: RedisConnectionFactory?):CacheManager{
+        log.info("cache Manager ..")
         var config:RedisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
         config = config.entryTtl(Duration.ofMinutes(60*60*20*24 .toLong()))
 
