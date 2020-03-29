@@ -130,6 +130,13 @@ object PublicToolsUtils {
 
     }
 
+    /**
+     * md5
+     */
+
+    /**
+     * uuid
+     */
 
 
     /**
