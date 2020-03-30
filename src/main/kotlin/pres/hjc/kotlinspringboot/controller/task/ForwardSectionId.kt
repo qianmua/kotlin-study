@@ -1,8 +1,11 @@
 package pres.hjc.kotlinspringboot.controller.task
 
 import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.ui.Model
+import org.springframework.web.bind.annotation.*
+import pres.hjc.kotlinspringboot.entity.TaskModel
+import javax.servlet.http.HttpServletRequest
+import javax.websocket.server.PathParam
 
 /**
 Created by IntelliJ IDEA.
@@ -16,6 +19,14 @@ To change this template use File | Settings | File Templates.
 @RequestMapping("/fsi")
 class ForwardSectionId {
 
-    @GetMapping("")
+    @GetMapping("init")
     fun inits() = ""
+
+    @PostMapping("add")
+    @ResponseBody
+    fun addTask(@PathParam("task") task:TaskModel ,
+                request: HttpServletRequest,
+                model:Model):Int{
+        return 1
+    }
 }

@@ -18,4 +18,6 @@ class SysLogModel (
         var method:String? ,
         var params:String?,
         var ip:String? ,
+        var browser:String?,
+        var type:String?,
         var createDate:String?):Serializable

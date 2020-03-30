@@ -26,7 +26,7 @@ class UserServiceImpl(
     override fun login(
             name: String,
             password: String): UserModel {
-        return userMapping.login(name, password)
+        return userMapping.login(name, password)!!
     }
 
 }
