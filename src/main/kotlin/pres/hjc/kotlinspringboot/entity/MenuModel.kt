@@ -8,4 +8,4 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-class MenuModel(var mid:Int? , var roles:String?)
+class MenuModel(var eid:Int? , var roles:String?)

@@ -11,7 +11,7 @@ Created by IntelliJ IDEA.
 To change this template use File | Settings | File Templates.
  */
 data class TaskModel(var tid:Int?,
-                     var text:String?,
+                     var task:String?,
                      var title:String?,
                      var fromto:String?,
                      var starttime:String?,
