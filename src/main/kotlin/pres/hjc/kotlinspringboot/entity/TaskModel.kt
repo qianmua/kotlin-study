@@ -1,6 +1,5 @@
 package pres.hjc.kotlinspringboot.entity
 
-import lombok.Data
 import java.io.Serializable
 
 /**
@@ -11,7 +10,6 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-@Data
 data class TaskModel(var tid:Int?,
                      var text:String?,
                      var title:String?,
