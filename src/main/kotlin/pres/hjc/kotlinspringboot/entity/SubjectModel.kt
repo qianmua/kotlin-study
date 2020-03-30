@@ -8,4 +8,4 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-class SubjectModel (var jid:Long?)
+data class SubjectModel (var jid:Long?,var did:Long?,var createdate:String? ,var operation:String?)

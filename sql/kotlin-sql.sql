@@ -49,6 +49,8 @@ create table syslog(
                        method varchar(255),
                        params text,
                        ip varchar(50),
+                       browser varchar(50),
+                       type varchar(50),
                        createdate datetime
 );
 
@@ -65,3 +67,22 @@ create table auth(
                      eid BIGINT
 );
 
+drop table if exists subjects;
+create table subjects(
+                         jid BIGINT primary key auto_increment,
+                         did BIGINT,
+                         createdate datetime,
+                         operation varchar(255)
+);
+
+drop table if exists subborder;
+create table subborder(
+                          did BIGINT primary key auto_increment,
+                          mon varchar(255),
+                          tue varchar(255),
+                          wed varchar(255),
+                          thu varchar(255),
+                          fri varchar(255),
+                          sat varchar(255),
+                          sun varchar(255)
+);

@@ -15,4 +15,4 @@ class SubBorderModel (var did:Long?,
                       var thu:String? ,
                       var fri:String? ,
                       var sat:String? ,
-                      var sun:String?)
+                      var sun:String? )

@@ -8,7 +8,7 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-class SendMailModel (var mid:Long ,
+data class SendMailModel (var mid:Long ,
                      var title:String,
                      var title2:String,
                      var formuser:String ,
