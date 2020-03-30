@@ -10,7 +10,7 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-data class UserModel(var uid:Int?,
+data class UserModel(var uid:Long?,
                      var name:String? ,
                      var password:String?,
                      var birthday: String?,
@@ -19,4 +19,5 @@ data class UserModel(var uid:Int?,
                      var realname:String?,
                      var classes:Int?,
                      var task:Int?,
+                     var admin:Int?,
                      var stauts:Int?):Serializable
