@@ -19,7 +19,11 @@ class ConstantUtils {
 
         //盐
 
+        //
         const val BASE_NUMBER = "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
+
+
+
     }
 
 }
