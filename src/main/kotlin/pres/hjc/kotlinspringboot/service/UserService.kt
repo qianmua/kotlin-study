@@ -13,8 +13,11 @@ To change this template use File | Settings | File Templates.
  */
 interface UserService {
 
-    fun insert(userModel: UserModel):Int
+    fun addUserInfo(userModel: UserModel):Int?
 
-    fun login(name:String , password:String):UserModel
+    fun login(name:String , password:String):UserModel?
 
+    fun queryById(uid:Int):UserModel?
+
+    fun update(userModel: UserModel):Int?
 }

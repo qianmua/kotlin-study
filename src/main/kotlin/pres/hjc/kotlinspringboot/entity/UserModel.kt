@@ -20,4 +20,5 @@ data class UserModel(var uid:Long?,
                      var classes:Int?,
                      var task:Int?,
                      var admin:Int?,
+                     var version:Int?,
                      var stauts:Int?):Serializable

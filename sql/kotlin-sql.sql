@@ -13,6 +13,7 @@ create table userinfo(
                          classes BIGINT,
                          taskid BIGINT,
                          admin BIGINT,
+                         version int,
                          status INT
 );
 
