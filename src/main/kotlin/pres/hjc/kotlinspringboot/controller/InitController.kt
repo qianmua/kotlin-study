@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl
+import pres.hjc.kotlinspringboot.tools.PublicToolsUtils
 
 /**
 Created by IntelliJ IDEA.
@@ -26,10 +27,9 @@ class InitController {
 
     @GetMapping("/")
     fun index():String{
-        logging.info("index path /")
+        logging.info("index path / rand UUID ${PublicToolsUtils.getUUID()}")
         return "index"
     }
-
     /*@GetMapping("l")
     fun login(name:String,
               password:String,

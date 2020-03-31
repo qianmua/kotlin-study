@@ -156,6 +156,13 @@ object PublicToolsUtils {
     fun snowflakeUrl():String{
         return "1"
     }
+    /**
+     * uuid java
+     */
+    fun getUUID():String{
+        return UUID.randomUUID().toString().replace("-","")
+    }
+
 
 
 
