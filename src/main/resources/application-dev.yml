@@ -85,6 +85,10 @@ spring:
         smtp:
           ssl:
             enable: true
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 150MB
 # 日志配置
 logging:
   level:
@@ -93,6 +97,7 @@ logging:
       hjc:
         kotlinspringboot:
           mapping: debug
+# fileMAX
 # 七牛云储存
 upload:
   qiniu:
