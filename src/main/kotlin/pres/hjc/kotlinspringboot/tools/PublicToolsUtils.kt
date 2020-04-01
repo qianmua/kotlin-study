@@ -9,7 +9,7 @@ import eu.bitwalker.useragentutils.OperatingSystem
 import eu.bitwalker.useragentutils.UserAgent
 import eu.bitwalker.useragentutils.Version
 import org.springframework.web.multipart.MultipartFile
-import pres.hjc.kotlinspringboot.config.quniu.FileUploadConfig
+import pres.hjc.kotlinspringboot.config.quniu.FileUploadConfig.*
 import pres.hjc.kotlinspringboot.function.qiniu.FileUoLoadInterface
 import java.awt.Color
 import java.awt.Font
@@ -174,12 +174,15 @@ object PublicToolsUtils {
      * 文件上传
      * 七牛
      */
-    class UploadFileQiniu:FileUoLoadInterface{
-        private lateinit var pro:FileUploadConfig.Qiniu
+     class UploadFileQiniu constructor(qiniu: Qiniu):FileUoLoadInterface{
+        private var pro: Qiniu
         //构造一个带指定Region对象的配置类
         private var cfg = Configuration(Region.region0())
         private val um = UploadManager(cfg)
 
+        init {
+            this.pro = qiniu
+        }
 
         override fun upLoadFile(file: MultipartFile): String {
             val auth = Auth.create(pro.accessKey,pro.secretKey)
