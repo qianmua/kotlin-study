@@ -696,7 +696,7 @@
 					$.data(this, 'plugin_' + pluginName, new Plugin(this, options));
 				}
 			});
-		} else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
+		} else if (typeof options === 'string' && options[0] !== '_' && options !== 'Init.kt') {
 			return this.each(function () {
 				var instance = $.data(this, 'plugin_' + pluginName);
 				if (instance instanceof Plugin && typeof instance[options] === 'function') {

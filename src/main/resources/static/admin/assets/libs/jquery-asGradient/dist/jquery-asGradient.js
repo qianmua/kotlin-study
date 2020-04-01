@@ -557,7 +557,7 @@
       AsGradient,
       [
         {
-          key: 'init',
+          key: 'Init.kt',
           value: function init(string) {
             if (string) {
               this.fromString(string);

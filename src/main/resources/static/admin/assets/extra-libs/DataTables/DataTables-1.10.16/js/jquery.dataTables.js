@@ -4770,7 +4770,7 @@
 		}
 	
 		_fnCallbackFire( settings, null, 'plugin-init', [settings, json] );
-		_fnCallbackFire( settings, 'aoInitComplete', 'init', [settings, json] );
+		_fnCallbackFire( settings, 'aoInitComplete', 'Init.kt', [settings, json] );
 	}
 	
 	
@@ -15116,7 +15116,7 @@
 	/**
 	 * DataTables initialisation complete event, fired when the table is fully
 	 * drawn, including Ajax data loaded, if Ajax data is required.
-	 *  @name DataTable#init.dt
+	 *  @name DataTable#Init.kt.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
 	 *  @param {object} oSettings DataTables settings object

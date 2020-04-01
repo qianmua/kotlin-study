@@ -1763,7 +1763,7 @@ class AsColorPicker {
       }
       if (Object.hasOwnProperty.call(this._components, key)) {
         component = this._components[key];
-        component.init(this, options);
+        component.Init(this, options);
       }
     });
 

@@ -1110,7 +1110,7 @@ var Quill = function () {
     this.keyboard = this.theme.addModule('keyboard');
     this.clipboard = this.theme.addModule('clipboard');
     this.history = this.theme.addModule('history');
-    this.theme.init();
+    this.theme.Init();
     this.emitter.on(_emitter4.default.events.EDITOR_CHANGE, function (type) {
       if (type === _emitter4.default.events.TEXT_CHANGE) {
         _this2.root.classList.toggle('ql-blank', _this2.editor.isBlank());
@@ -5719,7 +5719,7 @@ var Theme = function () {
   }
 
   _createClass(Theme, [{
-    key: 'init',
+    key: 'Init.kt',
     value: function init() {
       var _this = this;
 

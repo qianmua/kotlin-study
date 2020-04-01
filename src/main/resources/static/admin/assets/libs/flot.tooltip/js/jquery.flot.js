@@ -727,7 +727,7 @@ Licensed under the MIT license.
 
             for (var i = 0; i < plugins.length; ++i) {
                 var p = plugins[i];
-                p.init(plot, classes);
+                p.Init(plot, classes);
                 if (p.options)
                     $.extend(true, options, p.options);
             }

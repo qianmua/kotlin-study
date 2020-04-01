@@ -190,7 +190,7 @@ DataTable.ext.renderer.pageButton.semanticUI = function ( settings, host, idx, b
 
 
 // Javascript enhancements on table initialisation
-$(document).on( 'init.dt', function (e, ctx) {
+$(document).on( 'Init.kt.dt', function (e, ctx) {
 	if ( e.namespace !== 'dt' ) {
 		return;
 	}

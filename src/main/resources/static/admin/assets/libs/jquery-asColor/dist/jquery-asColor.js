@@ -806,7 +806,7 @@
       AsColor,
       [
         {
-          key: 'init',
+          key: 'Init.kt',
           value: function init(string) {
             this.format(this.options.format);
             this.fromString(string);

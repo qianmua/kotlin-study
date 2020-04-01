@@ -93,4 +93,11 @@ logging:
       hjc:
         kotlinspringboot:
           mapping: debug
+# 七牛云储存
+upload:
+  qiniu:
+    domain: q83mxlgqb.bkt.clouddn.com
+    access-key: adSzsDk3JrkTjCWVXB0P0m_kG3tk908Y27zSqFlb
+    secret-key: metQTgcHql-mtxtfXRJiUhycmGrGZumxE-sjD8bq
+    bucket: data-cache-qiniu-any
 
