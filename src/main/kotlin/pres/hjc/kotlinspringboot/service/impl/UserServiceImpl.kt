@@ -30,7 +30,7 @@ class UserServiceImpl:UserService {
     private lateinit var userMapping: UserMapping
 
     @Autowired
-    private lateinit var redisTemplate: RedisTemplate<*, *>
+    private lateinit var redisTemplate: RedisTemplate<Any, Any>
 
     override fun addUserInfo(userModel: UserModel): Int? {
         return userInfoMapping.addUserInfo(userModel)
@@ -56,12 +56,16 @@ class UserServiceImpl:UserService {
                               response:HttpServletResponse): UserModel? {
         var user:UserModel? = null
         var token:String? = CookieUtils.getCookie(request, ConstantUtils.SESSION_TOKEN)
-        if (token == null) user = redisTemplate.opsForValue()[token] as UserModel
+        if (token != null) {
+            user = redisTemplate.opsForValue()[token + ""] as UserModel
+            redisTemplate.delete(token + "")
+        }
         if (user == null) user = userInfoMapping.queryAdminId(name, password)
-        redisTemplate.delete(token)
-        token = PublicToolsUtils.getUUID()
+        //重新生成token cookie 重新计时
         CookieUtils.removeCookie(response, ConstantUtils.SESSION_TOKEN)
+        token = PublicToolsUtils.getUUID()
+        redisTemplate.opsForValue().set(token,user ?: "not null")
+        CookieUtils.addCookie(response,ConstantUtils.SESSION_TOKEN,token,60*60*24*7)
         return user
     }
-
 }

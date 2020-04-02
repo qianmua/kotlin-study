@@ -6,10 +6,12 @@ import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.ResponseBody
 import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl
 import pres.hjc.kotlinspringboot.tools.ConstantUtils
 import pres.hjc.kotlinspringboot.tools.CookieUtils
 import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 
 /**
 Created by IntelliJ IDEA.
@@ -41,10 +43,23 @@ class AdminForwardController {
     @GetMapping("login$suf")
     fun loginPage():String = "admin/login"
 
+    /**
+     * ajax login
+     */
     @PostMapping("login")
-    fun login(name:String, password:String,request: HttpServletRequest,model:Model):String{
-
-        return "admin/index"
+    @ResponseBody
+    fun login(name:String,
+              password:String,
+              request: HttpServletRequest,
+              response:HttpServletResponse,
+              model:Model):String{
+        if (name.length and password.length < 1 ){
+            model.addAttribute("msg","用户格式错误！")
+            return "error"
+        }else{
+            val userModel = userServiceImpl.queryAdminId(name, password, request, response) ?: return "fail"
+            request.session.setAttribute("user",userModel)
+        }
+        return "success"
     }
-
 }

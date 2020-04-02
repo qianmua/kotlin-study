@@ -22,9 +22,9 @@ object CookieUtils {
                   name:String,
                   value:String,
                   maxAge:Int){
-        val cookie:Cookie = Cookie(name, value)
+        val cookie = Cookie(name, value)
         cookie.path = "/"
-        if (maxAge > 0) cookie.maxAge
+        if (maxAge > 0) cookie.maxAge = maxAge
         response.addCookie(cookie)
     }
 
@@ -32,7 +32,7 @@ object CookieUtils {
      * 删除Cookie
      */
     fun removeCookie(response: HttpServletResponse ,name:String){
-        val uid:Cookie = Cookie(name,null)
+        val uid = Cookie(name,null)
         uid.path = "/"
         uid.maxAge = 0
         response.addCookie(uid)
