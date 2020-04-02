@@ -5,8 +5,9 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
-import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl
-import pres.hjc.kotlinspringboot.tools.PublicToolsUtils
+import pres.hjc.kotlinspringboot.service.impl.SysLogServiceImpl
+import pres.hjc.kotlinspringboot.typeset.OperationLogType
+import javax.servlet.http.HttpServletRequest
 
 /**
 Created by IntelliJ IDEA.
@@ -20,14 +21,17 @@ To change this template use File | Settings | File Templates.
 @Controller
 class InitController {
 
-    val logging: Logger = LoggerFactory.getLogger(InitController::class.java)
+    val log: Logger = LoggerFactory.getLogger(InitController::class.java)
 
     @Autowired
-    private lateinit var userServiceImpl: UserServiceImpl
-
+    private lateinit var sysLogServiceImpl: SysLogServiceImpl
     @GetMapping("/")
-    fun index():String{
-        logging.info("index path / rand UUID ${PublicToolsUtils.getUUID()}")
+    fun index(request: HttpServletRequest):String{
+        log.info("----------->page.index<------------")
+        val operation:String = OperationLogType.INDEX.toString()
+        val line = sysLogServiceImpl.add(operation,request)
+        log.info("line number -> $line")
+
         return "index"
     }
     /*@GetMapping("l")

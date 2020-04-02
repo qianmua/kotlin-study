@@ -12,7 +12,7 @@ Created by IntelliJ IDEA.
 To change this template use File | Settings | File Templates.
  */
 data class SysLogModel (
-        var lid:Long? ,
+        var lid:Long? = -1 ,
         var username:String? ,
         var operation:String? ,
         var method:String? ,
@@ -20,4 +20,5 @@ data class SysLogModel (
         var ip:String? ,
         var browser:String?,
         var type:String?,
-        var createDate:String?):Serializable
+        var version:String?,
+        var createdate:String?):Serializable

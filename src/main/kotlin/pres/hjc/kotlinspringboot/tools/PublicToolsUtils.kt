@@ -39,7 +39,7 @@ object PublicToolsUtils {
      * 得到用户Ip
      */
     fun getIpAddress(request: HttpServletRequest):String?{
-        var ip:String = request.getHeader("x-forwarded-for")
+        var ip:String? = request.getHeader("x-forwarded-for")
         if (ip == null || ip.isEmpty() || "unknown".equals(ip,true)) {
             ip = request.getHeader("Proxy-Client-IP")
         }

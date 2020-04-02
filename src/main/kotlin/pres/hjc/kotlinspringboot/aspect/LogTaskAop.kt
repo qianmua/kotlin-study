@@ -6,7 +6,6 @@ import org.aspectj.lang.annotation.*
 import org.slf4j.LoggerFactory
 import org.springframework.web.context.request.RequestContextHolder
 import org.springframework.web.context.request.ServletRequestAttributes
-import java.util.logging.LogRecord
 
 /**
 Created by IntelliJ IDEA.
@@ -17,10 +16,10 @@ Created by IntelliJ IDEA.
 To change this template use File | Settings | File Templates.
  */
 @Aspect
-class AllLogAop {
+class LogTaskAop {
 
     //@Autowired
-    private val logger = LoggerFactory.getLogger(AllLogAop::class.java)
+    private val logger = LoggerFactory.getLogger(LogTaskAop::class.java)
 
     @Pointcut("execution(public * pres.hjc.kotlinspringboot.controller.task..*.*(..))")
     fun logaop(){}

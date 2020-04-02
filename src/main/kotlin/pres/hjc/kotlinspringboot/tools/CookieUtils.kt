@@ -43,11 +43,12 @@ object CookieUtils {
      * 得到cookie值
      */
     fun getCookie(request: HttpServletRequest, name:String):String?{
-        val cookie:Array<Cookie> = request.cookies
-        for (cookie in cookie) {
-            if (cookie.name == name) return cookie.value
+        val cookies = request.cookies ?: return null
+        for (cookie in cookies) {
+            if (cookie.name == name) {
+                return cookie.value
+            }
         }
         return null
     }
-
 }
