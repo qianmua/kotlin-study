@@ -1,6 +1,8 @@
 package pres.hjc.kotlinspringboot.service
 
 import pres.hjc.kotlinspringboot.entity.UserModel
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 
 
 /**
@@ -20,4 +22,6 @@ interface UserService {
     fun queryById(uid:Int):UserModel?
 
     fun update(userModel: UserModel):Int?
+
+    fun queryAdminId(name:String , password:String,request: HttpServletRequest,response:HttpServletResponse):UserModel?
 }

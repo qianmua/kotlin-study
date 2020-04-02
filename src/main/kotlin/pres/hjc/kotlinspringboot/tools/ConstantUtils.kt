@@ -22,6 +22,8 @@ class ConstantUtils {
         //
         const val BASE_NUMBER = "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
 
+        //session toekn
+        const val SESSION_TOKEN = "SESSION_TOKEN"
 
 
     }

@@ -1,8 +1,12 @@
 package pres.hjc.kotlinspringboot.controller.admin
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl
 import pres.hjc.kotlinspringboot.tools.ConstantUtils
 import pres.hjc.kotlinspringboot.tools.CookieUtils
 import javax.servlet.http.HttpServletRequest
@@ -22,16 +26,25 @@ class AdminForwardController {
     companion object {
         private const val suf = ConstantUtils.suffix
     }
+
+    @Autowired
+    private lateinit var userServiceImpl: UserServiceImpl
+
     @GetMapping("/")
     fun adminIndex(request: HttpServletRequest):String {
         val sessionToken = CookieUtils.getCookie(request,"SESSION_TOKEN")
-        return if (sessionToken == null) "forward:/admin/login.html" else "admin/index"
+        return if (sessionToken == null) "redirect:/admin/login.html" else "admin/index"
     }
     @GetMapping("/index$suf")
     fun board(): String = "admin/index"
 
     @GetMapping("login$suf")
-    fun login():String = "admin/login"
+    fun loginPage():String = "admin/login"
 
+    @PostMapping("login")
+    fun login(name:String, password:String,request: HttpServletRequest,model:Model):String{
+
+        return "admin/index"
+    }
 
 }

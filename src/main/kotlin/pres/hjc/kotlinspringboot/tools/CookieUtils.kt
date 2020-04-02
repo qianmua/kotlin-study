@@ -18,8 +18,7 @@ object CookieUtils {
      *  cookie tools
      *  add cookie
      */
-    fun addCookie(request: HttpServletRequest,
-                  response: HttpServletResponse,
+    fun addCookie(response: HttpServletResponse,
                   name:String,
                   value:String,
                   maxAge:Int){
