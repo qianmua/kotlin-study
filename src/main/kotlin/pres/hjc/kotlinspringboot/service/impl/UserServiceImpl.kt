@@ -1,8 +1,12 @@
 package pres.hjc.kotlinspringboot.service.impl
 
+import com.alibaba.fastjson.JSON
+import com.alibaba.fastjson.JSONObject
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.stereotype.Service
+import org.springframework.ui.Model
 import pres.hjc.kotlinspringboot.entity.UserModel
 import pres.hjc.kotlinspringboot.mapping.UserInfoMapping
 import pres.hjc.kotlinspringboot.mapping.UserMapping
@@ -28,9 +32,10 @@ class UserServiceImpl:UserService {
     private lateinit var userInfoMapping: UserInfoMapping
     @Autowired
     private lateinit var userMapping: UserMapping
-
     @Autowired
-    private lateinit var redisTemplate: RedisTemplate<Any, Any>
+    private lateinit var redisTemplate: RedisTemplate<String, Any>
+
+    private val log = LoggerFactory.getLogger(UserServiceImpl::class.java)
 
     override fun addUserInfo(userModel: UserModel): Int? {
         return userInfoMapping.addUserInfo(userModel)
@@ -38,8 +43,8 @@ class UserServiceImpl:UserService {
 
     override fun login(
             name: String,
-            password: String): UserModel {
-        return userMapping.login(name, password)!!
+            password: String): UserModel? {
+        return userMapping.login(name, password)
     }
 
     override fun queryById(uid: Int): UserModel? {
@@ -50,6 +55,9 @@ class UserServiceImpl:UserService {
         return userInfoMapping.update(userModel)
     }
 
+    /**
+     * admin 登录
+     */
     override fun queryAdminId(name: String,
                               password: String,
                               request: HttpServletRequest,
@@ -57,14 +65,18 @@ class UserServiceImpl:UserService {
         var user:UserModel? = null
         var token:String? = CookieUtils.getCookie(request, ConstantUtils.SESSION_TOKEN)
         if (token != null) {
-            user = redisTemplate.opsForValue()[token + ""] as UserModel
-            redisTemplate.delete(token + "")
+            val value = redisTemplate.opsForValue()[token]
+            val json = JSONObject.toJSON(value)
+            val toJOSNString = JSONObject.toJSONString(json)
+            user = JSON.parseObject(toJOSNString,UserModel::class.java)
+            redisTemplate.delete(token)
         }
-        if (user == null) user = userInfoMapping.queryAdminId(name, password)
+        //没有该用户，阻断
+        if (user == null) user = userInfoMapping.queryAdminId(name, password) ?: return null
         //重新生成token cookie 重新计时
         CookieUtils.removeCookie(response, ConstantUtils.SESSION_TOKEN)
         token = PublicToolsUtils.getUUID()
-        redisTemplate.opsForValue().set(token,user ?: "not null")
+        redisTemplate.opsForValue().set(token,user)
         CookieUtils.addCookie(response,ConstantUtils.SESSION_TOKEN,token,60*60*24*7)
         return user
     }

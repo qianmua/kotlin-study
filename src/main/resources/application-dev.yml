@@ -19,7 +19,7 @@ spring:
     host: 47.96.230.44
     database: 1
     port: 6379
-    password:
+    password: my_redis1.
     timeout: 5000
     #    lettuce:
     jedis:

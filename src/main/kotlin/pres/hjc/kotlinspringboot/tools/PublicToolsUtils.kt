@@ -9,7 +9,7 @@ import eu.bitwalker.useragentutils.OperatingSystem
 import eu.bitwalker.useragentutils.UserAgent
 import eu.bitwalker.useragentutils.Version
 import org.springframework.web.multipart.MultipartFile
-import pres.hjc.kotlinspringboot.config.quniu.FileUploadConfig.*
+import pres.hjc.kotlinspringboot.config.quniu.FileUploadConfig.Qiniu
 import pres.hjc.kotlinspringboot.function.qiniu.FileUoLoadInterface
 import java.awt.Color
 import java.awt.Font
@@ -19,10 +19,14 @@ import java.io.IOException
 import java.io.OutputStream
 import java.net.InetAddress
 import java.net.UnknownHostException
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
 import java.util.*
 import javax.imageio.ImageIO
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
+import kotlin.experimental.and
+
 
 /**
 Created by IntelliJ IDEA.
@@ -33,7 +37,6 @@ Created by IntelliJ IDEA.
 To change this template use File | Settings | File Templates.
  */
 object PublicToolsUtils {
-
 
     /**
      * 得到用户Ip
@@ -95,7 +98,7 @@ object PublicToolsUtils {
     /**
      * 得到浏览器版本号
      */
-    fun getRrowserVersion(request: HttpServletRequest):String?{
+    fun getRowserVersion(request: HttpServletRequest):String?{
         val header = request.getHeader("user-agent")
         val agent:UserAgent? = UserAgent.parseUserAgentString(header)
         val browser:Browser? = agent?.browser
@@ -117,12 +120,11 @@ object PublicToolsUtils {
      * 生成验证码
      */
     fun createVerificationCode(request: HttpServletRequest,response: HttpServletResponse){
-
         try {
             val width:Int = 200
             val height:Int = 69
 
-            val img:BufferedImage = BufferedImage(width,height,BufferedImage.TYPE_INT_RGB)
+            val img = BufferedImage(width,height,BufferedImage.TYPE_INT_RGB)
 
             val randomBuffer:String = VerifyCode.randomText(width,height,img)
             request.session.setAttribute("imgdode",randomBuffer)
@@ -140,6 +142,27 @@ object PublicToolsUtils {
     /**
      * md5
      */
+     fun md5(buffer: String): String? {
+        var string: String? = null
+        val hexDigist = charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f')
+        val md: MessageDigest
+        try {
+            md = MessageDigest.getInstance("MD5")
+            md.update(buffer.toByteArray())
+            val datas = md.digest() //16个字节的长整数
+            val str = CharArray(2 * 16)
+            var k = 0
+            for (i in 0..15) {
+                val b = datas[i]
+                str[k++] = hexDigist[b.toInt() ushr 4 and 0xf] //高4位
+                str[k++] = hexDigist[(b and 0xf).toInt()] //低4位
+            }
+            string = String(str)
+        } catch (e: NoSuchAlgorithmException) {
+            e.printStackTrace()
+        }
+        return string
+    }
 
     /**
      * uuid

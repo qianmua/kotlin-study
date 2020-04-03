@@ -31,7 +31,7 @@ class SysLogServiceImpl:SysLogService {
             request: HttpServletRequest): Int? {
         val ip = PublicToolsUtils.getIpAddress(request)
         val type = PublicToolsUtils.getBrowserName(request)
-        val version = PublicToolsUtils.getRrowserVersion(request)
+        val version = PublicToolsUtils.getRowserVersion(request)
         val os = PublicToolsUtils.getOsName(request)
         val date = SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(Date())
         val sysLogModel = SysLogModel(-1,"test",operation,

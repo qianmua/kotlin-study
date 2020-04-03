@@ -9,6 +9,8 @@ import org.springframework.web.multipart.MultipartFile
 import pres.hjc.kotlinspringboot.config.quniu.FileUploadConfig
 import pres.hjc.kotlinspringboot.tools.ConstantUtils
 import pres.hjc.kotlinspringboot.tools.PublicToolsUtils
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 
 /**
 Created by IntelliJ IDEA.
@@ -34,5 +36,13 @@ class FileOperationController {
     }
     @GetMapping("/op$suf")
     fun pageop():String = "pictures/open-pictures"
+
+    /**
+     * 验证码
+      */
+    @RequestMapping("/gvc")
+    fun getVerifyCode(
+            request:HttpServletRequest,
+            response: HttpServletResponse) = PublicToolsUtils.createVerificationCode(request, response)
 
 }
