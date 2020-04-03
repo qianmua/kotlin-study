@@ -24,6 +24,6 @@ class LogAdminAop {
 
     @Before("weblog()")
     fun doBefore(joinPoint: JoinPoint){
-        log.info("admin.test")
+
     }
 }

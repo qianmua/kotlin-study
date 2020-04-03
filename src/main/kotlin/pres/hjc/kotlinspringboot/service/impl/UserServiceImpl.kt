@@ -62,13 +62,23 @@ class UserServiceImpl:UserService {
                               password: String,
                               request: HttpServletRequest,
                               response:HttpServletResponse): UserModel? {
+        //初始化user
         var user:UserModel? = null
+        //得到cookie token
         var token:String? = CookieUtils.getCookie(request, ConstantUtils.SESSION_TOKEN)
         if (token != null) {
+            //查找redis
             val value = redisTemplate.opsForValue()[token]
+            //转为json
             val json = JSONObject.toJSON(value)
+            //json格式字符串
             val toJOSNString = JSONObject.toJSONString(json)
+            //json to User
             user = JSON.parseObject(toJOSNString,UserModel::class.java)
+            //验证密码
+            //阻断
+            if(name != user.name || password != user.password ) return null
+            //重置redis，重新计时
             redisTemplate.delete(token)
         }
         //没有该用户，阻断

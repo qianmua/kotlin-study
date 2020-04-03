@@ -38,7 +38,10 @@ class AdminForwardController {
         return if (sessionToken == null) "redirect:/admin/login.html" else "admin/index"
     }
     @GetMapping("/index$suf")
-    fun board(): String = "admin/index"
+    fun board(request: HttpServletRequest): String {
+        val sessionToken = CookieUtils.getCookie(request,"SESSION_TOKEN")
+        return if (sessionToken == null) "redirect:/admin/login.html" else "admin/index"
+    }
 
     @GetMapping("login$suf")
     fun loginPage():String = "admin/login"
@@ -54,7 +57,6 @@ class AdminForwardController {
               response:HttpServletResponse,
               model:Model):String{
         if (name.length and password.length < 1 ){
-            model.addAttribute("msg","用户格式错误！")
             return "error"
         }else{
             val userModel = userServiceImpl.queryAdminId(name, password, request, response) ?: return "fail"

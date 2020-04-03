@@ -224,7 +224,14 @@ object PublicToolsUtils {
         }
     }
 
-
+    /**
+     * fastJson
+     *
+     * @return Any or Value
+     */
+    fun getJson():String?{
+        return ""
+    }
 
 
     /**
