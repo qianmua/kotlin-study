@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
+import pres.hjc.kotlinspringboot.CustomLogTarget.Logs
 import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl
 import pres.hjc.kotlinspringboot.tools.ConstantUtils
 import pres.hjc.kotlinspringboot.tools.CookieUtils
@@ -37,18 +38,21 @@ class AdminForwardController {
         val sessionToken = CookieUtils.getCookie(request,"SESSION_TOKEN")
         return if (sessionToken == null) "redirect:/admin/login.html" else "admin/index"
     }
+    @Logs("index")
     @GetMapping("/index$suf")
     fun board(request: HttpServletRequest): String {
         val sessionToken = CookieUtils.getCookie(request,"SESSION_TOKEN")
         return if (sessionToken == null) "redirect:/admin/login.html" else "admin/index"
     }
 
+    @Logs("pages login")
     @GetMapping("login$suf")
     fun loginPage():String = "admin/login"
 
     /**
      * ajax login
      */
+    @Logs("login")
     @PostMapping("login")
     @ResponseBody
     fun login(name:String,
