@@ -9,7 +9,7 @@ import org.aspectj.lang.reflect.MethodSignature
 import org.slf4j.LoggerFactory
 import org.springframework.web.context.request.RequestContextHolder
 import org.springframework.web.context.request.ServletRequestAttributes
-import pres.hjc.kotlinspringboot.CustomLogTarget.Logs
+import pres.hjc.kotlinspringboot.target.Logs
 import java.lang.reflect.Method
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpSession

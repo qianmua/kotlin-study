@@ -1,4 +1,4 @@
-package pres.hjc.kotlinspringboot.intercaptor.security.handler
+package pres.hjc.kotlinspringboot.interceptor.security.handler
 
 import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.core.AuthenticationException

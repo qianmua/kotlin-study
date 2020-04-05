@@ -1,4 +1,4 @@
-package pres.hjc.kotlinspringboot.intercaptor.security
+package pres.hjc.kotlinspringboot.interceptor.security
 
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -9,7 +9,6 @@ import org.springframework.security.web.access.intercept.FilterInvocationSecurit
 import org.springframework.stereotype.Component
 import org.springframework.util.AntPathMatcher
 import pres.hjc.kotlinspringboot.service.impl.AuthServiceImpl
-import java.util.*
 
 /**
 Created by IntelliJ IDEA.

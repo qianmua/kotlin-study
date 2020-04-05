@@ -1,4 +1,4 @@
-package pres.hjc.kotlinspringboot.intercaptor.security
+package pres.hjc.kotlinspringboot.interceptor.security
 
 import org.springframework.security.access.AccessDecisionManager
 import org.springframework.security.access.ConfigAttribute

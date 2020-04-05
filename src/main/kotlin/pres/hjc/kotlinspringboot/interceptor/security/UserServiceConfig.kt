@@ -1,4 +1,4 @@
-package pres.hjc.kotlinspringboot.intercaptor.security
+package pres.hjc.kotlinspringboot.interceptor.security
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.userdetails.UserDetails
@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import pres.hjc.kotlinspringboot.entity.UserModel
 import pres.hjc.kotlinspringboot.mapping.UserMapping
-import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl
 
 /**
 Created by IntelliJ IDEA.

@@ -1,4 +1,4 @@
-package pres.hjc.kotlinspringboot.intercaptor.security.handler
+package pres.hjc.kotlinspringboot.interceptor.security.handler
 
 import org.springframework.security.access.AccessDeniedException
 import org.springframework.security.web.access.AccessDeniedHandler

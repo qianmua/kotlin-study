@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-import pres.hjc.kotlinspringboot.intercaptor.security.UserServiceConfig
+import pres.hjc.kotlinspringboot.interceptor.security.UserServiceConfig
 
 /**
 Created by IntelliJ IDEA.

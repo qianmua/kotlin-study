@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
-import pres.hjc.kotlinspringboot.CustomLogTarget.Logs
+import pres.hjc.kotlinspringboot.target.Logs
 import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl
 import pres.hjc.kotlinspringboot.tools.ConstantUtils
 import pres.hjc.kotlinspringboot.tools.CookieUtils

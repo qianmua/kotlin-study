@@ -1,4 +1,4 @@
-package pres.hjc.kotlinspringboot.CustomLogTarget;
+package pres.hjc.kotlinspringboot.target;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
