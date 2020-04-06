@@ -23,7 +23,7 @@ Created by IntelliJ IDEA.
 To change this template use File | Settings | File Templates.
  */
 @Controller
-@RequestMapping("admin")
+@RequestMapping("/admin")
 class AdminForwardController {
 
     companion object {
@@ -33,19 +33,18 @@ class AdminForwardController {
     @Autowired
     private lateinit var userServiceImpl: UserServiceImpl
 
-    @GetMapping("/")
+    @Logs("index")
+    @GetMapping("", "index","index$suf")
     fun adminIndex(request: HttpServletRequest):String {
         val sessionToken = CookieUtils.getCookie(request,"SESSION_TOKEN")
-        return if (sessionToken == null) "redirect:/admin/login.html" else "admin/index"
+        return if (sessionToken == null) "redirect:/admin/login.html" else "redirect:/admin/index"
     }
-    @Logs("index")
-    @GetMapping("/index$suf")
+    /*@GetMapping("/index$suf")
     fun board(request: HttpServletRequest): String {
         val sessionToken = CookieUtils.getCookie(request,"SESSION_TOKEN")
         return if (sessionToken == null) "redirect:/admin/login.html" else "admin/index"
-    }
-
-    @Logs("pages login")
+    }*/
+    @Logs("pagesLogin")
     @GetMapping("login$suf")
     fun loginPage():String = "admin/login"
 

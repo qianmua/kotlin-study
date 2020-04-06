@@ -52,6 +52,7 @@ create table syslog(
                        ip varchar(50),
                        browser varchar(50),
                        type varchar(50),
+                       version varchar(50),
                        createdate datetime
 );
 
@@ -87,3 +88,38 @@ create table subborder(
                           sat varchar(255),
                           sun varchar(255)
 );
+
+drop table if exists imgurl;
+create table imgurl(
+                       imgid BIGINT primary key auto_increment,
+                       name varchar(255),
+                       url varchar(255),
+                       version varchar(100),
+                       auth int,
+                       status int
+);
+
+drop table if exists scheduled_task;
+CREATE TABLE `scheduled_task` (
+                                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                                  `task_key` varchar(128) NOT NULL COMMENT '任务key值（使用bean名称）',
+                                  `task_desc` varchar(128) DEFAULT NULL COMMENT '任务描述',
+                                  `task_cron` varchar(128) NOT NULL COMMENT '任务表达式',
+                                  `init_start_flag` int(2) NOT NULL DEFAULT '1' COMMENT '程序初始化是否启动 1 是 0 否',
+                                  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                                  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+                                  PRIMARY KEY (`id`),
+                                  UNIQUE KEY `uniqu_task_key` (`task_key`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+drop table if exists suggest;
+create table suggest(
+                        sugid BIGINT primary key AUTO_INCREMENT,
+                        sug varchar(255) not null ,
+                        sug_type varchar(100) not null ,
+                        sug_url varchar(255) ,
+                        sug_date datetime,
+                        qqAddress varchar(100),
+                        status int
+);
+

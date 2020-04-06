@@ -22,7 +22,7 @@ class PageForwardController {
         private const val suf = ConstantUtils.suffix
     }
 
-    @GetMapping("/")
+    @GetMapping("" , "index")
     fun index():String = "index"
 
     @GetMapping("index$suf")
