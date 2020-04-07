@@ -52,7 +52,6 @@ class MySecurityConfig : WebSecurityConfigurerAdapter() {
                 .logout().logoutUrl("/html/logout")
                 .permitAll()
                 .and().csrf().disable()
-
     }
 
     /**

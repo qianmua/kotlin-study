@@ -1,5 +1,13 @@
-# kotlin-study
-kotlin + 班级任务发布
+# 咕咕鸟任务发布管理系统
 
-springboot整合
+主要功能给班级学生分发课时邮件，作业邮件，并且监控任务完成情况。
+
+用来学习springboot
+
+> 1.介绍
+
+咕咕鸟使用的springboot + kotlin 的整合，目前正在学习kotlin，所以就有了个
+咕咕鸟任务系统的诞生。
+
+
 
