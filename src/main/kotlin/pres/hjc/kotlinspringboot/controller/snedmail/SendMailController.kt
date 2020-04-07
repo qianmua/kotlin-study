@@ -10,8 +10,10 @@ import org.springframework.mail.javamail.MimeMailMessage
 import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
+import pres.hjc.kotlinspringboot.mapping.MailInfoMapping
 import java.io.File
 import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
@@ -26,30 +28,19 @@ Created by IntelliJ IDEA.
 To change this template use File | Settings | File Templates.
  */
 @Controller
-@RequestMapping("/send")
+@RequestMapping("/mail")
 class SendMailController{
+
     @Autowired
     private lateinit var javaMailSenderImpl: JavaMailSenderImpl
+
+    @Autowired
+    private lateinit var mailMapping:MailInfoMapping
+
     private val logger by lazy { LoggerFactory.getLogger(SendMailController::class.java) }
 
-    @RequestMapping("t")
-    @ResponseBody
-    fun sendMail1():String{
 
-        try {
-            val simpleMailMessage = SimpleMailMessage()
-            simpleMailMessage.setSubject("kotlin test3!")
-            simpleMailMessage.setText("this is a kotlin test page . thank you!")
-            simpleMailMessage.setTo("2674521520@qq.com")
-            simpleMailMessage.setFrom("2174521520@qq.com")
-            javaMailSenderImpl.send(simpleMailMessage)
-        } catch (e: Exception) {
-            logger.info("mail send fail: ${e.message}")
-        }
-        return "send mail ok!"
-    }
-
-    @GetMapping("h")
+    @PostMapping("send")
     @ResponseBody
     fun sendmailHtml():String{
         try {
