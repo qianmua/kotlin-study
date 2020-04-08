@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
 import pres.hjc.kotlinspringboot.mapping.MailInfoMapping
 import java.io.File
+import javax.annotation.Resource
 import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
 import javax.mail.internet.MimeUtility

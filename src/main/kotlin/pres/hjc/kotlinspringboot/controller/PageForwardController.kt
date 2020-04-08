@@ -1,9 +1,7 @@
 package pres.hjc.kotlinspringboot.controller
 
 import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.*
 import pres.hjc.kotlinspringboot.tools.ConstantUtils
 
 /**
@@ -17,6 +15,7 @@ To change this template use File | Settings | File Templates.
 @Controller
 @RequestMapping("/ft")
 class PageForwardController {
+
 
     companion object{
         private const val suf = ConstantUtils.suffix

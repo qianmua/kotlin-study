@@ -1,5 +1,6 @@
 package pres.hjc.kotlinspringboot.config.snedmail
 
+import org.springframework.context.annotation.Bean
 import org.springframework.mail.javamail.JavaMailSenderImpl
 import org.springframework.stereotype.Component
 
