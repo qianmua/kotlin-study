@@ -8,5 +8,7 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-
+/**
+ * 邮件管理员表（发件人）
+ */
 data class MailFromInfoModel(var mailId:Long,var fromName:String? ,var fromMail:String?,var status:Int)

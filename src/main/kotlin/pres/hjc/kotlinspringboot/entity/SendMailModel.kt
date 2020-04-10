@@ -8,6 +8,9 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
+/**
+ * 邮件表
+ */
 data class SendMailModel (var mid:Long ,
                      var title:String,
                      var title2:String,

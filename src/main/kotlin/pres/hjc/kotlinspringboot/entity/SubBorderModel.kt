@@ -8,6 +8,9 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
+/**
+ * 科目表关联，星期
+ */
 class SubBorderModel (var did:Long?,
                       var mon:String? ,
                       var tue:String? ,

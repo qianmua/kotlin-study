@@ -10,6 +10,10 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
+/**
+ * 暂不使用
+ */
+@Deprecated("请使用UserInfo")
 data class UserModel(var uid:Long?,
                      var name:String? ,
                      var password:String?,

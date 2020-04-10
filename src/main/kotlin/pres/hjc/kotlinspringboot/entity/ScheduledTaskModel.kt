@@ -8,6 +8,9 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
+/**
+ * 定时任务调度
+ */
 data class ScheduledTaskModel(var taskKey:String?,
                               var taskDesc:String?,
                               var taskCron:String?,

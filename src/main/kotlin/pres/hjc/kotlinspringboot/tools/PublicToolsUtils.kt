@@ -139,12 +139,12 @@ object PublicToolsUtils {
         }catch (e:IOException){
             e.printStackTrace()
         }
-
     }
 
     /**
      * md5
      */
+    @Deprecated("使用MD5Two方法代替")
      fun md5(buffer: String): String? {
         var string: String? = null
         val hexDigist = charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f')

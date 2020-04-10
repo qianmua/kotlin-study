@@ -10,6 +10,9 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
+/**
+ * 任务表
+ */
 data class TaskModel(var tid:Int?,
                      var task:String?,
                      var title:String?,

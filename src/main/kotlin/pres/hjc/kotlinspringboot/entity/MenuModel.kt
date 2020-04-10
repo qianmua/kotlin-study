@@ -8,4 +8,7 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
+/**
+ * 菜单权限表 权限管理用
+ */
 data class MenuModel(var eid:Int? , var roles:String?)

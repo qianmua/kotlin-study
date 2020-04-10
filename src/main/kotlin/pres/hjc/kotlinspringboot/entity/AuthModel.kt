@@ -8,4 +8,7 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
+/**
+ * 菜单组（一个菜单可能有多个权限级别）
+ */
 data class AuthModel(var aid:Long?, var url:String, var eid:Long?,var allRoles:List<MenuModel>?)

@@ -8,6 +8,9 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
+/**
+ * 用户建议表
+ */
 data class UserSuggestModel(var sugId:Long?,
                             var sug:String?,
                             var sug_type:String?,

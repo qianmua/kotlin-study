@@ -11,6 +11,9 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
+/**
+ * 系统日志
+ */
 data class SysLogModel (
         var lid:Long? = -1 ,
         var username:String? ,
