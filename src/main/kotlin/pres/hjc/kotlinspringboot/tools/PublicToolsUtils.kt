@@ -24,6 +24,7 @@ import java.net.InetAddress
 import java.net.UnknownHostException
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
+import java.text.SimpleDateFormat
 import java.util.*
 import javax.imageio.ImageIO
 import javax.servlet.http.HttpServletRequest
@@ -44,22 +45,22 @@ object PublicToolsUtils {
     /**
      * 得到用户Ip
      */
-    fun getIpAddress(request: HttpServletRequest):String?{
-        var ip:String? = request.getHeader("x-forwarded-for")
+    fun getIpAddress(request: HttpServletRequest?):String?{
+        var ip:String? = request?.getHeader("x-forwarded-for")
         if (ip == null || ip.isEmpty() || "unknown".equals(ip,true)) {
-            ip = request.getHeader("Proxy-Client-IP")
+            ip = request?.getHeader("Proxy-Client-IP")
         }
         if (ip == null || ip.isEmpty()|| "unknown".equals(ip,true)) {
-            ip = request.getHeader("WL-Proxy-Client-IP")
+            ip = request?.getHeader("WL-Proxy-Client-IP")
         }
         if (ip == null || ip.isEmpty() || "unknown".equals(ip,true)) {
-            ip = request.getHeader("HTTP_CLIENT_IP")
+            ip = request?.getHeader("HTTP_CLIENT_IP")
         }
         if (ip == null || ip.isEmpty() || "unknown".equals(ip,true)) {
-            ip = request.getHeader("HTTP_X_FORWARDED_FOR")
+            ip = request?.getHeader("HTTP_X_FORWARDED_FOR")
         }
         if (ip == null || ip.isEmpty() || "unknown".equals(ip,true)) {
-            ip = request.remoteAddr
+            ip = request?.remoteAddr
             if("127.0.0.1" == ip || "0:0:0:0:0:0:0:1" == ip){
                 //根据网卡取本机配置的IP
                 var  inet:InetAddress? = null
@@ -265,6 +266,25 @@ object PublicToolsUtils {
      */
     fun getUUID():String{
         return UUID.randomUUID().toString().replace("-","")
+    }
+
+    /**
+     * 格式化时间
+     */
+    fun dateFormat(date: Date):String? {
+        val fmt = SimpleDateFormat("yyyy-MM-dd HH:mm")
+        return fmt.format(date)
+    }
+    /**
+     * 时间戳
+     */
+    fun dateLong():Long? = System.currentTimeMillis()
+    /**
+     * 时间戳 -> date
+     */
+    fun longToDate(long:Long):String? {
+        val fmt = SimpleDateFormat("yyyy-MM-dd HH:mm")
+        return fmt.format(long)
     }
 
     /**

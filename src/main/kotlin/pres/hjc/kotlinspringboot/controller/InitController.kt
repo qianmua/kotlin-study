@@ -28,9 +28,11 @@ class InitController {
     @GetMapping("/")
     fun index(request: HttpServletRequest):String{
         log.info("----------->page.index<------------")
+        /*
+        test globals exception
         var a = 1
         var b = 0
-        println(a/b)
+        println(a/b)*/
         val operation:String = OperationLogType.INDEX.toString()
         val line = sysLogServiceImpl.add(operation,request)
         log.info("line number -> $line")

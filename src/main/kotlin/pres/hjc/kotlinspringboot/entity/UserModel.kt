@@ -11,9 +11,9 @@ Created by IntelliJ IDEA.
 To change this template use File | Settings | File Templates.
  */
 /**
- * 暂不使用
+ * 用户表
  */
-@Deprecated("请使用UserInfo")
+//@Deprecated("请使用UserInfo")
 data class UserModel(var uid:Long?,
                      var name:String? ,
                      var password:String?,

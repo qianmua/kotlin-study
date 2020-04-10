@@ -123,3 +123,20 @@ create table suggest(
                         status int
 );
 
+drop table if exists mailinfo;
+create table mailinfo(
+                         mailId BIGINT primary key AUTO_INCREMENT,
+                         from_name varchar(255) unique ,
+                         from_mail varchar(255),
+                         status int
+);
+
+drop table if exists gloexception;
+create table gloexception(
+                             exid BIGINT primary key AUTO_INCREMENT,
+                             err_code varchar(255) ,
+                             err_msg text,
+                             createtime datetime,
+                             trigger_ip varchar(100),
+                             status int
+);

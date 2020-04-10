@@ -14,4 +14,6 @@ To change this template use File | Settings | File Templates.
 data class ExceptionModel(var exid:Long? ,
                           var errCode:String?,
                           var errMsg:String?,
-                          var createTime:String?)
+                          var createTime:String?,
+                          var triggerIp:String?,
+                          var status:Int?)
