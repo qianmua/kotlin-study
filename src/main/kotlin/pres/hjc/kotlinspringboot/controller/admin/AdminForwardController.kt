@@ -37,8 +37,13 @@ class AdminForwardController {
     @GetMapping("", "index","index$suf")
     fun adminIndex(request: HttpServletRequest):String {
         val sessionToken = CookieUtils.getCookie(request,"SESSION_TOKEN")
-        return if (sessionToken == null) "redirect:/admin/login.html" else "redirect:/admin/index"
+        if (sessionToken == null) {
+            return "redirect:/admin/login.html"
+        } else {
+            return "admin/index"
+        }
     }
+
     /*@GetMapping("/index$suf")
     fun board(request: HttpServletRequest): String {
         val sessionToken = CookieUtils.getCookie(request,"SESSION_TOKEN")

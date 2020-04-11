@@ -12,12 +12,12 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-@Component
+//@Component
 class ExportTimeLog {
 
     private var log = LoggerFactory.getLogger(ExportTimeLog::class.java)
 
-    @Scheduled( cron = "0 0 12,23 * * ?")
+//    @Scheduled( cron = "0 0 12,23 * * ?")
     fun mainInfo(){
         //查询
         log.info("刷新规则。")

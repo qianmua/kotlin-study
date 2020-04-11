@@ -1,6 +1,7 @@
 package pres.hjc.kotlinspringboot.config.security
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -8,6 +9,8 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.web.firewall.HttpFirewall
+import org.springframework.security.web.firewall.StrictHttpFirewall
 import pres.hjc.kotlinspringboot.interceptor.security.UserServiceConfig
 
 /**
@@ -70,6 +73,18 @@ class MySecurityConfig : WebSecurityConfigurerAdapter() {
 //        super.configure(web)
         web!!.ignoring().antMatchers("/index.html","static/**","/login","/favicon.ico" , "/ft/**")
                 .antMatchers("/swagger-ui.html", "/swagger-resources/**", "/images/**", "/webjars/**", "/v2/api-docs", "/configuration/ui", "/configuration/security")
+    }
+
+    /**
+     * 配置地址栏不能识别 // 的情况
+     * @return
+     */
+    @Bean
+    fun allowUrlEncodedSlashHttpFirewall(): HttpFirewall {
+        val firewall = StrictHttpFirewall()
+        //此处可添加别的规则,目前只设置 允许双 //
+        firewall.setAllowUrlEncodedDoubleSlash(true)
+        return firewall
     }
 
 

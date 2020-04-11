@@ -15,7 +15,7 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-@Configuration
+//@Configuration
 class ScheduledTaskConfig {
 
     private val log by lazy { LoggerFactory.getLogger(ScheduledTaskConfig::class.java) }
@@ -23,7 +23,7 @@ class ScheduledTaskConfig {
     /**
      * 创建定时任务线程池
      */
-    @Bean("threadTask")
+//    @Bean("threadTask")
     fun threadTask():ThreadPoolTaskScheduler{
         log.info("创建定时任务线程池 start......")
         val thread = ThreadPoolTaskScheduler()
@@ -39,7 +39,7 @@ class ScheduledTaskConfig {
     /**
      * 初始化任务map
      */
-    @Bean("scheduledTaskJobMap")
+//    @Bean("scheduledTaskJobMap")
     fun scheduledTaskJobMap():Map<String, ScheduledTaskJob>{
         return ScheduledTaskEnum.initScheduledTask()
     }
