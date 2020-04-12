@@ -15,8 +15,8 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-@Controller
-@RequestMapping("/scheduled")
+//@Controller
+//@RequestMapping("/scheduled")
 class ScheduledController {
 
     @Autowired

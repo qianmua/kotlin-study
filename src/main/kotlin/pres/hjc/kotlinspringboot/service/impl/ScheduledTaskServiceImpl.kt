@@ -26,7 +26,7 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-@Service
+//@Service
 class ScheduledTaskServiceImpl:ScheduledTaskService{
 
     private val LOGGER by lazy { LoggerFactory.getLogger(ScheduledTaskServiceImpl::class.java) }
