@@ -18,7 +18,7 @@ Created by IntelliJ IDEA.
 To change this template use File | Settings | File Templates.
  */
 @Component
-open class MailApi {
+class MailApi {
 
     private val javaMailSenderImpl by lazy { JavaMailSenderImpl() }
     private val logger by lazy { LoggerFactory.getLogger(MailApi::class.java) }
@@ -36,7 +36,6 @@ open class MailApi {
             mailBody.setTo(group)
             mailBody.setSubject(title1)
             mailBody.setText(viewsText(title2),true)
-
             javaMailSenderImpl.send(mimeMessage)
         } catch (e: Exception) {
             logger.error("fail: ${e.message}")
@@ -56,7 +55,7 @@ open class MailApi {
                 <th>${DayGetCont.SUN}</th>
             </tr>
             <tr><td>测试用</td><td>测试用</td><td>测试用</td><td>测试用</td><td>测试用</td><td>测试用</td><td>测试用</td></tr>
-        </table>
+        </table></br>
     """.trimIndent()
 
     //send image file

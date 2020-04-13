@@ -39,6 +39,7 @@ create table sendmail(
                          sendname varchar(255),
                          send text,
                          imgurl varchar(255),
+                         createdate varchar(100),
                          status int
 );
 
@@ -140,3 +141,8 @@ create table gloexception(
                              trigger_ip varchar(100),
                              status int
 );
+
+
+
+
+

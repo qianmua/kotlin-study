@@ -18,5 +18,6 @@ data class SendMailModel (var mid:Long? ,
                      var touser:String? ,
                      var sendname:String? ,
                      var send:String?,
+                     var createdate:String?,
                      var imgurl:String?,
                      var status:Int? )

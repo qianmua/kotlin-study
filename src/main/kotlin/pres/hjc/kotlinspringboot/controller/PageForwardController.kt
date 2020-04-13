@@ -84,4 +84,5 @@ class PageForwardController {
 
     @GetMapping("shop$suf")
     fun shop():String = "html/shop"
+    
 }
