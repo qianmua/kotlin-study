@@ -185,8 +185,10 @@ object PublicToolsUtils {
 
     /**
      * hash url encrpet
+     * 加密公钥防止反射破坏应该放在enum里面
+     * 动态公钥
      */
-    open fun encreptUrl(url: String): String? {
+    fun encreptUrl(url: String): String? {
         try {
             val salt = "JKDSPnBKYJ2E7kEg9mYSteK4AXE8ywUB96y8gjDFhfy".toByteArray(charset("UTF-8"))
             val checkSalt = "C2NkXy3ECJn9AcMB976DnBKYJ2E7kEg9mYSte"
@@ -197,10 +199,10 @@ object PublicToolsUtils {
             val encryptUrl = messageDigest.digest(bytes)
             val semiFinishedProducts = BASE64Encoder().encode(encryptUrl)
             //加密url的长度我设置的6位. 加密的url取三位。剩下三位分别给静态盐1位和动态盐2位
-            val urlKey: String = semiFinishedProducts.substring(0, 3)
+            val urlKey: String = semiFinishedProducts.substring(0, 4)
             //位置可以在0-32位之间。这里可以选择位置。但是解密的时候就必须用同样的位置
-            val staticSalt: String = md5Two(urlKey + checkSalt)!!.substring(4, 5)
-            val dynaSalt: String = md5Two("" + UUID.randomUUID())!!.substring(5, 7)
+            val staticSalt: String = md5Two(urlKey + checkSalt)!!.substring(5, 6)
+            val dynaSalt: String = md5Two("" + UUID.randomUUID())!!.substring(6, 9)
             val encrypted = urlKey + staticSalt + dynaSalt
             //标记量。用来加强短链接检查.这里输出查看下
             val sig: String? = md5Two(encrypted)
@@ -216,23 +218,28 @@ object PublicToolsUtils {
         return null
     }
 
+    /**
+     *  短地址解密
+     *  hash
+     */
     fun getOriginUrl(encrpetUrl: String, sig: String): String? {
         var encrpetUrl = encrpetUrl
         encrpetUrl = encrpetUrl.substring(encrpetUrl.lastIndexOf("/") + 1)
-        val key = encrpetUrl.substring(0, 3)
-        val staticSalt = encrpetUrl.substring(3, 4)
+        val key = encrpetUrl.substring(0, 4)
+        val staticSalt = encrpetUrl.substring(4, 5)
         //和上面的检查盐一样
         val checkSalt = "C2NkXy3ECJn9AcMB976DnBKYJ2E7kEg9mYSte"
         //静态盐检查
-        val correctStaticSalt: String = md5Two(key + checkSalt)!!.substring(4, 5)
+        val correctStaticSalt: String = md5Two(key + checkSalt)!!.substring(5, 6)
         if (staticSalt != correctStaticSalt) {
             println(1)
             return "error"
         }
         val correctSig: String? = md5Two(encrpetUrl)
-        if (sig != correctSig) {
+        //验证md5值，双重验证，防止碰撞
+        /*if (sig != correctSig) {
             return "error"
-        }
+        }*/
         //检查完毕。 没问题就通过key查询数据库。拿到原始url
         println(encrpetUrl)
         return correctSig

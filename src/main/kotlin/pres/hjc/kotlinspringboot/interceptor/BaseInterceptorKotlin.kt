@@ -22,8 +22,8 @@ class BaseInterceptorKotlin:HandlerInterceptor {
     private val USER_AGENT = "user-agent"
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, o: Any): Boolean {
         val uri = request.requestURI
-        LOGGE.info("用户请求头: {}", request.getHeader(USER_AGENT))
-        LOGGE.info("请求地址: $uri , 访问IP : ${PublicToolsUtils.getIpAddress(request)}")
+        /*LOGGE.info("用户请求头: {}", request.getHeader(USER_AGENT))
+        LOGGE.info("请求地址: $uri , 访问IP : ${PublicToolsUtils.getIpAddress(request)}")*/
         val userModel = request.session.getAttribute("user")
         if (uri.startsWith("/admin") &&
                 !uri.startsWith("/admin/login") &&

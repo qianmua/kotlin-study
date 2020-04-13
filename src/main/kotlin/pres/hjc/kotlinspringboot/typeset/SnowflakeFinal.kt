@@ -8,6 +8,9 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
+/**
+ * 雪花算法MD5
+ */
 class SnowflakeFinal {
     companion object{
         /**
