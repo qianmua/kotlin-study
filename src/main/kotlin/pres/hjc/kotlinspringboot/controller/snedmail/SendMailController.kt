@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 import pres.hjc.kotlinspringboot.function.mail.MailApi
 import pres.hjc.kotlinspringboot.mapping.MailInfoMapping
+import pres.hjc.kotlinspringboot.service.impl.SendMailServiceImpl
 import java.awt.TextArea
 import java.io.File
 import javax.annotation.Resource
@@ -33,6 +34,9 @@ class SendMailController{
 
     @Autowired
     private lateinit var mailApi:MailApi
+
+    @Autowired
+    private lateinit var sendMailService:SendMailServiceImpl
 
     @Autowired
     private lateinit var mailMapping:MailInfoMapping

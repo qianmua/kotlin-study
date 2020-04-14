@@ -1,5 +1,6 @@
 package pres.hjc.kotlinspringboot.service
 
+import org.apache.ibatis.annotations.Param
 import pres.hjc.kotlinspringboot.entity.SendMailModel
 
 /**
@@ -16,5 +17,13 @@ interface SendMailService {
 
     fun queryById(mid:Int):SendMailModel
 
-    fun add(title:String,title2:String):Int
+    fun add(@Param("title")title:String,
+            @Param("title2")title2:String,
+            @Param("formuser")formuser:String,
+            @Param("touser")touser:String,
+            @Param("sendname")sendname:String,
+            @Param("send")send:String,
+            @Param("imgurl")imgurl:String,
+            @Param("createdate")createdate:String,
+            @Param("title")status:Int):Int
 }
