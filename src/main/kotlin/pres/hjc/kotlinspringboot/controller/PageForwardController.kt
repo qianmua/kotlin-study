@@ -2,6 +2,7 @@ package pres.hjc.kotlinspringboot.controller
 
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
+import pres.hjc.kotlinspringboot.target.AuthMenuLeave
 import pres.hjc.kotlinspringboot.tools.ConstantUtils
 
 /**
@@ -21,6 +22,7 @@ class PageForwardController {
         private const val suf = ConstantUtils.suffix
     }
 
+    @AuthMenuLeave("100")
     @GetMapping("" , "index")
     fun index():String = "index"
 
