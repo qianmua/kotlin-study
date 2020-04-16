@@ -11,4 +11,8 @@ To change this template use File | Settings | File Templates.
 /**
  * 用户组
  */
-data class GroupModel (var gid:Long? ,var name:String? , var createTime:String? , var auth:String?)
+data class GroupModel (
+        var gid:Long? ,
+        var name:String? ,
+        var createTime:String? ,
+        var auth:String?)

@@ -142,7 +142,47 @@ create table gloexception(
                              status int
 );
 
+drop table if exists groupClass;
+create table groupClass(
+                           gid BIGINT PRIMARY KEY  AUTO_INCREMENT,
+                           name varchar(100) ,
+                           crateTime varchar(50),
+                           auth varchar(100)
+);
 
 
 
 
+
+
+
+
+
+
+-- aaaaaaaaaaaaaaaaaaaaaaa
+-- aaaaaaaaaaaaaaaaaaaaaaa
+-- aaaaaaaaaaaaaaaaaaaaaaa
+insert into mailinfo(from_name, from_mail,status) values ('咕咕鸟','2174521520@qq.com',1);
+
+INSERT INTO
+    `scheduled_task`(`id`, `task_key`, `task_desc`, `task_cron`, `init_start_flag`, `create_time`, `update_time`) VALUES (1, 'scheduledTask01', '定时任务01', '0/5 * * * * ?', 1, NOW(), NOW());
+INSERT INTO
+    `scheduled_task`(`id`, `task_key`, `task_desc`, `task_cron`, `init_start_flag`, `create_time`, `update_time`) VALUES (2, 'scheduledTask02', '定时任务02', '0/2 * * * * ?', 0, NOW(), NOW());
+INSERT INTO
+    `scheduled_task`(`id`, `task_key`, `task_desc`, `task_cron`, `init_start_flag`, `create_time`, `update_time`) VALUES (3, 'scheduledTask03', '定时任务03', '0/2 * * * * ?', 1, NOW(), NOW());
+
+insert into
+    userinfo(name, password, email, tel,version, status)
+values('main','main','211745@qq.com','180********',1,1);
+insert into
+    userinfo(name, password, email, tel,version, status)
+values('test','test','211745@qq.com','180********',1,1);
+insert into
+    userinfo(name, password, email, tel,admin,version, status)
+values('admin','admin','211745@qq.com','180********',99,1,1);
+
+select * from userinfo;
+
+select * from userinfo where admin > 0;
+
+select * from userinfo where name = 'admins' and password = '123' and admin > 0;

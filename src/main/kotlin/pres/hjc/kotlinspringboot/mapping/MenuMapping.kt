@@ -1,7 +1,6 @@
 package pres.hjc.kotlinspringboot.mapping
 
-import org.apache.ibatis.annotations.Param
-import org.apache.ibatis.annotations.Select
+import org.apache.ibatis.annotations.*
 import pres.hjc.kotlinspringboot.entity.MenuModel
 
 /**
@@ -12,10 +11,21 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-
+@Mapper
 interface MenuMapping {
 
-    @Select("select mid,roles form menus where mid = #{mid}")
-    fun queryById(@Param("mid")mid: Long):List<MenuModel>
+    @Select("select roles form menu where eid = #{eid}")
+    fun queryById(eid: Long):MenuModel
+
+    @Select("""
+        select * from menu
+    """)
+    fun queryAll():MutableList<MenuModel>
+
+    @Insert("""
+        insert into roles values(#{roles})
+    """)
+    @Options( useGeneratedKeys = false , keyProperty = "eid", keyColumn = "eid")
+    fun add(roles:String):Int
 
 }
