@@ -15,3 +15,4 @@ import org.mapstruct.Mapper;
 public interface TaskMapping {
 
 }
+
