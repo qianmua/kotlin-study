@@ -1,9 +1,6 @@
 package pres.hjc.kotlinspringboot.mapping
 
-import org.apache.ibatis.annotations.Insert
-import org.apache.ibatis.annotations.Options
-import org.apache.ibatis.annotations.Select
-import org.apache.ibatis.annotations.Update
+import org.apache.ibatis.annotations.*
 import org.springframework.stereotype.Service
 import pres.hjc.kotlinspringboot.entity.GroupModel
 
@@ -15,7 +12,7 @@ Created by IntelliJ IDEA.
 @version 1.0
 To change this template use File | Settings | File Templates.
  */
-@Service
+@Mapper
 interface GroupMapping {
 
     @Select("""

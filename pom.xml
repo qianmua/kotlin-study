@@ -151,6 +151,12 @@
             <artifactId>qiniu-java-sdk</artifactId>
             <version>7.2.27</version>
         </dependency>
+
+        <!--rabbit-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
 	</dependencies>
 
 	<build>

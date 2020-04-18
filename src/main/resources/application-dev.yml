@@ -3,6 +3,8 @@ server:
   servlet:
     context-path: /tasks
 spring:
+  application:
+    name: springboot-demo
   thymeleaf:
     cache: false
     # 在这里作为前缀，表示被thymeleaf修饰的页面在这里作为根目录。（注意：不是静态资源）
@@ -89,6 +91,12 @@ spring:
     multipart:
       max-file-size: 50MB
       max-request-size: 150MB
+
+  rabbitmq:
+    host: 47.96.230.44
+    port: 5672
+    username: guest
+    password: my_guest1.
 # 日志配置
 logging:
   level:

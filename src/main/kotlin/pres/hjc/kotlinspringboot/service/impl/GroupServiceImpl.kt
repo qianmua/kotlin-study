@@ -18,6 +18,7 @@ To change this template use File | Settings | File Templates.
 class GroupServiceImpl :GroupService{
     @Autowired
     private lateinit var groupMapping: GroupMapping
+
     override fun queryAll(): MutableList<GroupModel> {
         return groupMapping.queryAll()
     }
