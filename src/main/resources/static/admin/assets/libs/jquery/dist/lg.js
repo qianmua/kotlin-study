@@ -3,7 +3,7 @@ $(function () {
         let values = $('#loginform1').serializeArray();
         let name = values[0].value;
         let password = values[1].value;
-        $.post('../admin/login',{
+        $.post('../login',{
             name:name,
             password:password
         },function(result){
