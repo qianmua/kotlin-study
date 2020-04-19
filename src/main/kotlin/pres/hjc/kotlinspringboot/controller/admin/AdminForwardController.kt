@@ -61,7 +61,7 @@ class AdminForwardController {
      * ajax login
      */
     @Logs("login")
-    @RequestMapping("login")
+    @PostMapping("login")
     @ResponseBody
     fun login(name:String,
               password:String,

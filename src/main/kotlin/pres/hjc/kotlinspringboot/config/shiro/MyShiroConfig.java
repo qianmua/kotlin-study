@@ -40,6 +40,10 @@ public class MyShiroConfig {
         * roles 拥有某个角色权限*/
 
         Map<String, String> filterMap = new LinkedHashMap<>();
+        //授权 401 跳转到授权页面
+        filterMap.put("/admins/post2.html","perms[post2]");
+
+        //拦截
         filterMap.put("/","anon");
         filterMap.put("/ft/*","anon");
         filterMap.put("/login","anon");
@@ -48,7 +52,10 @@ public class MyShiroConfig {
         filterMap.put("/admins/login.html","anon");
         bean.setFilterChainDefinitionMap(filterMap);
 
+        //login
         bean.setLoginUrl("/admins/login.html");
+        //未授权
+        bean.setUnauthorizedUrl("/unauth");
         return bean;
     }
 

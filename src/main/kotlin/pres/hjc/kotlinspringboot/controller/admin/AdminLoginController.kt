@@ -25,7 +25,7 @@ class AdminLoginController {
     /**
      * ajax login
      */
-    @Logs("all login")
+    @Logs("login")
     @RequestMapping("/login")
     @ResponseBody
     fun login(name:String,
@@ -54,5 +54,11 @@ class AdminLoginController {
             request.session.setAttribute("user",userModel)*/
         }
         return "success"
+    }
+
+    @RequestMapping("/unauth")
+    @ResponseBody
+    fun unAuth():String{
+        return "error：401 未授权,请联系管理员获得权限"
     }
 }

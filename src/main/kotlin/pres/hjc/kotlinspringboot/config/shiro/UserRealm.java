@@ -1,10 +1,16 @@
 package pres.hjc.kotlinspringboot.config.shiro;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import pres.hjc.kotlinspringboot.entity.UserModel;
+import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,6 +24,8 @@ import org.apache.shiro.subject.PrincipalCollection;
 @Slf4j
 public class UserRealm extends AuthorizingRealm {
 
+    @Autowired
+    private UserServiceImpl userService;
 
     /**
      * 授权
@@ -26,8 +34,17 @@ public class UserRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        System.out.println("授权");
-        return null;
+
+        log.info("授权 ----------<");
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+//        info.addStringPermission("post2");
+
+        //得到当前用户对象，
+        Subject subject = SecurityUtils.getSubject();
+        //user
+        UserModel userModel = (UserModel) subject.getPrincipal();
+        info.addStringPermission(userModel.getAdmin().toString());
+        return info;
     }
 
     /**
@@ -43,14 +60,15 @@ public class UserRealm extends AuthorizingRealm {
         String name = "root";
         String passowrd = "root";
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        if (!token.getUsername().equals(name)){
+        UserModel userModel = userService.login(name,passowrd);
+        if (userModel == null){
             //抛出用户名错误异常
             return null;
         }
 
         //密码认证
-        return new SimpleAuthenticationInfo("",passowrd,"");
+        return new SimpleAuthenticationInfo(userModel,passowrd,"");
         //得到当前请求
-        return null;
+//        return null;
     }
 }
