@@ -33,6 +33,7 @@ public class DirectRabbitConfig {
         return new DirectExchange("psaChange");
     }
 
+    @Bean
     Binding bingDirect(){
         return BindingBuilder.bind(createDirectQueue()).to(createChange()).with("DirectRouting");
     }

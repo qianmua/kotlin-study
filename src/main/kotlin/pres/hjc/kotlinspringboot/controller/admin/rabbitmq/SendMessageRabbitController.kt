@@ -23,6 +23,9 @@ class SendMessageRabbitController {
     @Autowired
     private lateinit var rabbitTemplate:RabbitTemplate
 
+    /**
+     * 测试接口
+     */
     @GetMapping("test")
     fun snedDirect():String{
         val msgID = PublicToolsUtils.getUUID()
@@ -33,7 +36,13 @@ class SendMessageRabbitController {
         map["messageData"] = messageData
         map["createTime"] = createTime
         //将消息携带绑定键值：TestDirectRouting 发送到交换机TestDirectExchange
+        /*发送到交换机DirectRouting*/
         rabbitTemplate.convertAndSend("psaChange", "DirectRouting", map)
+        /*topicExchange*/
+        rabbitTemplate.convertAndSend("topicExchange", "rbmq.man", map)
+        rabbitTemplate.convertAndSend("topicExchange", "rbmq.woman", map)
+        /*fanoutExchange*/
+        rabbitTemplate.convertAndSend("fanoutExchange", null.toString(), map)
         return "ok"
     }
 }

@@ -97,6 +97,14 @@ spring:
     port: 5672
     username: guest
     password: my_guest1.
+    # 虚拟host 可以不设置 有默认。
+    #virtual-host:
+    # 消息回调设置
+    # 确认消息发送到交换机
+    # 确认消息已经发送到队列 queue
+    publisher-returns: true
+    # 必须配置这个才会确认回调
+    publisher-confirm-type: correlated
 # 日志配置
 logging:
   level:
