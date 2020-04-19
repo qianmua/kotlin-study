@@ -28,7 +28,6 @@ class MySecurityConfig : WebSecurityConfigurerAdapter() {
     @Autowired
     private lateinit var userService:UserServiceConfig
 
-
     /**
      * @Author: Galen
      * @Description: HttpSecurity包含了原数据（主要是url）
@@ -61,8 +60,8 @@ class MySecurityConfig : WebSecurityConfigurerAdapter() {
      * 配置密码加密格式
      */
     override fun configure(auth: AuthenticationManagerBuilder?) {
-//        super.configure(auth)
-        auth!!.userDetailsService(userService).passwordEncoder(BCryptPasswordEncoder())
+        super.configure(auth)
+//        auth!!.userDetailsService(userService).passwordEncoder(BCryptPasswordEncoder())
     }
 
     /**
