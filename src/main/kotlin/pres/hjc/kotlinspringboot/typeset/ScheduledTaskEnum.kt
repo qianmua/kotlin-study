@@ -56,7 +56,6 @@ enum class ScheduledTaskEnum(taskKey: String, scheduledTaskJob: ScheduledTaskJob
             return scheduledTaskJobMap
         }
     }
-
     init {
         this.taskKey = taskKey
         this.scheduledTaskJob = scheduledTaskJob

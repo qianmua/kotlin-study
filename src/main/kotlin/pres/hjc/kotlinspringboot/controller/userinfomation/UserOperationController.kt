@@ -2,10 +2,11 @@ package pres.hjc.kotlinspringboot.controller.userinfomation
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.*
+import pres.hjc.kotlinspringboot.entity.UserModel
 import pres.hjc.kotlinspringboot.mapping.UserInfoMapping
+import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl
+import pres.hjc.kotlinspringboot.target.AuthMenuLeave
 
 /**
 Created by IntelliJ IDEA.
@@ -21,6 +22,9 @@ class UserOperationController {
     @Autowired
     private lateinit var userInfoMapping: UserInfoMapping
 
+    @Autowired
+    private lateinit var userServiceImpl: UserServiceImpl
+
     @GetMapping("ti")
     @ResponseBody
     fun testjog():String{
@@ -34,5 +38,17 @@ class UserOperationController {
         println("第一次修改${if (versionUpdate1 == 1) "成功" else "失败"}")
         println("第二次修改${if (versionUpdate2 == 1) "成功" else "失败"}")
         return "?"
+    }
+
+    @AuthMenuLeave("100")
+    @PostMapping("addUser")
+    @ResponseBody
+    fun addUser(@RequestBody userModel: UserModel):String{
+        /*验证参数*/
+        if (userModel == null) "错误的注册方式"
+        if (userModel.name == null  || userModel.password == null) "错误的用户名"
+        if (userModel.name!!.length < 5   || userModel.password!!.length < 5) "格式有误"
+        val addUserInfo = userServiceImpl.addUserInfo(userModel)
+        return ""
     }
 }

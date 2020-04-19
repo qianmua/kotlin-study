@@ -28,7 +28,7 @@ class ScheduledTaskConfig {
         log.info("创建定时任务线程池 start......")
         val thread = ThreadPoolTaskScheduler()
         //线程池大小
-        thread.poolSize = 15
+        thread.poolSize = 5
         thread.setThreadNamePrefix("taskExecutor-")
         thread.setWaitForTasksToCompleteOnShutdown(true)
         thread.setAwaitTerminationSeconds(60)
