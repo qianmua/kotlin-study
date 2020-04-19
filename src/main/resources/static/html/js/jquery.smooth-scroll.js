@@ -483,11 +483,11 @@ function overflowingAncestor(el) {
  ***********************************************/
 
 function addEvent(type, fn, bubble) {
-    window.addEventListener(type, fn, (bubble||false));
+    window.addEventListener(type, fn,  { passive: false });
 }
 
 function removeEvent(type, fn, bubble) {
-    window.removeEventListener(type, fn, (bubble||false));  
+    window.removeEventListener(type, fn, (bubble||false));
 }
 
 function isNodeName(el, tag) {

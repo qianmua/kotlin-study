@@ -1,7 +1,6 @@
 package pres.hjc.kotlinspringboot.mapping
 
 import org.apache.ibatis.annotations.*
-import org.springframework.security.core.userdetails.UserDetails
 import pres.hjc.kotlinspringboot.entity.UserModel
 
 /**
@@ -13,6 +12,7 @@ Created by IntelliJ IDEA.
 To change this template use File | Settings | File Templates.
  */
 @Mapper
+@Deprecated("userInfoMapping")
 interface UserMapping {
 
     /**
@@ -23,8 +23,8 @@ interface UserMapping {
         """)
     fun login(@Param("name")name:String ,@Param("password")password:String):UserModel
 
-    @Select("select * from user where name = #{name}")
-    fun loadUsernameByMysql(@Param("name")name:String):UserDetails
+    /*@Select("select * from user where name = #{name}")
+    fun loadUsernameByMysql(@Param("name")name:String):UserDetails*/
 
     @Insert("insert into user(name,password) values (#{name},#{password})")
     @Options( useGeneratedKeys = true , keyColumn = "uid" ,keyProperty = "uid")

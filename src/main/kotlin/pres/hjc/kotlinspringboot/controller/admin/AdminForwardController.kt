@@ -23,7 +23,7 @@ Created by IntelliJ IDEA.
 To change this template use File | Settings | File Templates.
  */
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admins")
 class AdminForwardController {
 
     companion object {
