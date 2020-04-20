@@ -59,6 +59,8 @@ public class UserRealm extends AuthorizingRealm {
         //用户名密码呗~
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         UserModel userModel = userService.login(token.getUsername(), String.valueOf(token.getPassword()));
+        //get token password
+        log.info("get token password  -> {}",token.getPassword());
         if (userModel == null){
             //抛出用户名错误异常
             log.warn("user id null -> ");

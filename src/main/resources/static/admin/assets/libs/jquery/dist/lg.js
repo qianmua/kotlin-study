@@ -10,7 +10,7 @@ $(function () {
             if ("success" === result){
                 console.log(result);
                 toastr.success('正在跳转页面.', '登录成功!');
-                window.location.href = "index.html"
+                window.location.href = "../admins/index.html"
             }else if ("error" === result){
                 console.log(result);
                 toastr.error('用户名格式有误.', '错误!');

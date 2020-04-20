@@ -53,7 +53,8 @@ class UserServiceImpl:UserService {
             password: String): UserModel? {
         log.info("method login name = $name - > password = $password")
         var password_token = password
-        password_token = PublicToolsUtils.md5Two(password + ConstantUtils.PASSWORD_HEAD)!!
+        //可以双重MD5加密
+//        password_token = PublicToolsUtils.md5Two(password + ConstantUtils.PASSWORD_HEAD)!!
         return userInfoMapping.login(name, password_token)
     }
 

@@ -15,6 +15,7 @@ import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl
 import pres.hjc.kotlinspringboot.target.Logs
 import pres.hjc.kotlinspringboot.tools.ConstantUtils
 import pres.hjc.kotlinspringboot.tools.CookieUtils
+import pres.hjc.kotlinspringboot.tools.PublicToolsUtils
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
@@ -71,9 +72,12 @@ class AdminForwardController {
         if (name.length and password.length < 1 ){
             return "error"
         }else{
+            //token 放在这里会匹配不上，令牌错误，md5加密冲突
             //封装令牌
             val subject = SecurityUtils.getSubject()
-            val usernamePasswordToken = UsernamePasswordToken(name, password)
+            var password_tolen = password
+            password_tolen = PublicToolsUtils.md5Two(password + ConstantUtils.PASSWORD_HEAD)!!
+            val usernamePasswordToken = UsernamePasswordToken(name, password_tolen)
             //执行登录
             try {
                 subject.login(usernamePasswordToken)

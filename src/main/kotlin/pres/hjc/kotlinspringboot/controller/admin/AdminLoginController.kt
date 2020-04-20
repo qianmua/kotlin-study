@@ -4,6 +4,7 @@ import org.apache.shiro.SecurityUtils
 import org.apache.shiro.authc.IncorrectCredentialsException
 import org.apache.shiro.authc.UnknownAccountException
 import org.apache.shiro.authc.UsernamePasswordToken
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -30,6 +31,8 @@ class AdminLoginController {
 
     @Autowired
     private lateinit var userServiceImpl: UserServiceImpl
+
+    private val log by lazy { LoggerFactory.getLogger(AdminLoginController::class.java) }
     /**
      * ajax login
      */
@@ -45,6 +48,7 @@ class AdminLoginController {
             return "error"
         }else{
             //封装令牌
+            log.info("封装令牌->")
             val subject = SecurityUtils.getSubject()
             val usernamePasswordToken = UsernamePasswordToken(name, password)
             //执行登录
