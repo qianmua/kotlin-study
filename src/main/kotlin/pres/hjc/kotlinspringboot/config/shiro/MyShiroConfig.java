@@ -47,9 +47,12 @@ public class MyShiroConfig {
         filterMap.put("/","anon");
         filterMap.put("/ft/*","anon");
         filterMap.put("/login","anon");
-        filterMap.put("/admins/*","authc");
         filterMap.put("/admins/login","anon");
         filterMap.put("/admins/login.html","anon");
+        filterMap.put("/addUser","anon");
+
+        filterMap.put("/admins/*","authc");
+
         bean.setFilterChainDefinitionMap(filterMap);
 
         //login

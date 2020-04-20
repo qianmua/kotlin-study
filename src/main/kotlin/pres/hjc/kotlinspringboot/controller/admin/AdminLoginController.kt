@@ -4,10 +4,13 @@ import org.apache.shiro.SecurityUtils
 import org.apache.shiro.authc.IncorrectCredentialsException
 import org.apache.shiro.authc.UnknownAccountException
 import org.apache.shiro.authc.UsernamePasswordToken
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
+import pres.hjc.kotlinspringboot.entity.UserModel
+import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl
 import pres.hjc.kotlinspringboot.target.Logs
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -22,6 +25,9 @@ To change this template use File | Settings | File Templates.
  */
 @Controller
 class AdminLoginController {
+
+    @Autowired
+    private lateinit var userServiceImpl: UserServiceImpl
     /**
      * ajax login
      */
@@ -60,5 +66,22 @@ class AdminLoginController {
     @ResponseBody
     fun unAuth():String{
         return "error：401 未授权,请联系管理员获得权限"
+    }
+
+    @RequestMapping("/addUser")
+    @ResponseBody
+    fun addUser(userModel: UserModel):String{
+
+        try {
+            val status =  userServiceImpl.addUserInfo(userModel)
+            if (status != 0 ){
+                return "success"
+            }else{
+                return "fail"
+            }
+        } catch (e: Exception) {
+            println("注册失败： message:" + e.message)
+        }
+        return "error"
     }
 }

@@ -57,17 +57,16 @@ public class UserRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         log.info("认证 -------------->");
         //用户名密码呗~
-        String name = "root";
-        String passowrd = "root";
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        UserModel userModel = userService.login(name,passowrd);
+        UserModel userModel = userService.login(token.getUsername(), String.valueOf(token.getPassword()));
+        System.out.println(token.getPassword());
         if (userModel == null){
             //抛出用户名错误异常
             return null;
         }
 
         //密码认证
-        return new SimpleAuthenticationInfo(userModel,passowrd,"");
+        return new SimpleAuthenticationInfo(userModel,userModel.getPassword(),"");
         //得到当前请求
 //        return null;
     }

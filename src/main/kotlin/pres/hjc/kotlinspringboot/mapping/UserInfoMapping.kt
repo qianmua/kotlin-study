@@ -35,4 +35,9 @@ interface UserInfoMapping {
 
     @Select("select * from userinfo where name = #{name} and password = #{password} and admin > 0")
     fun queryAdminId(@Param("name")name:String, @Param("password")password:String):UserModel?
+
+    @Select("""
+        
+    """)
+    fun queryByName();
 }

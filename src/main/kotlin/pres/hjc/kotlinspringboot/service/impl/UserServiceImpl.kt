@@ -38,6 +38,10 @@ class UserServiceImpl:UserService {
     private val log = LoggerFactory.getLogger(UserServiceImpl::class.java)
 
     override fun addUserInfo(userModel: UserModel): Int? {
+        //密码加盐
+        var password = userModel.password ?: "123456"
+        password = PublicToolsUtils.md5Two(password + ConstantUtils.PASSWORD_HEAD)!!
+        userModel.password = password
         return userInfoMapping.addUserInfo(userModel)
     }
 

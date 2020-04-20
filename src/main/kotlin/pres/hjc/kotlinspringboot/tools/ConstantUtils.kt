@@ -18,7 +18,7 @@ class ConstantUtils {
         const val SWAGGER_VERSION = "1.0.0"
 
         //盐
-
+        const val PASSWORD_HEAD = "294kafhisdjk56sfd"
         //
         const val BASE_NUMBER = "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
 
