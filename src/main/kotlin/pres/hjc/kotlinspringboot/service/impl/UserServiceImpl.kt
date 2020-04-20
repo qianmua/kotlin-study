@@ -45,10 +45,16 @@ class UserServiceImpl:UserService {
         return userInfoMapping.addUserInfo(userModel)
     }
 
+    /**
+     * 不知道哪里来的登录。。。我裂开了
+     */
     override fun login(
             name: String,
             password: String): UserModel? {
-        return userMapping.login(name, password)
+        log.info("method login name = $name - > password = $password")
+        var password_token = password
+        password_token = PublicToolsUtils.md5Two(password + ConstantUtils.PASSWORD_HEAD)!!
+        return userInfoMapping.login(name, password_token)
     }
 
     override fun queryById(uid: Int): UserModel? {

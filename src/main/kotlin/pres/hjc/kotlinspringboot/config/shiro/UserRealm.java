@@ -59,11 +59,12 @@ public class UserRealm extends AuthorizingRealm {
         //用户名密码呗~
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         UserModel userModel = userService.login(token.getUsername(), String.valueOf(token.getPassword()));
-        System.out.println(token.getPassword());
         if (userModel == null){
             //抛出用户名错误异常
+            log.warn("user id null -> ");
             return null;
         }
+        log.info("get user -> {}",userModel.toString());
 
         //密码认证
         return new SimpleAuthenticationInfo(userModel,userModel.getPassword(),"");
