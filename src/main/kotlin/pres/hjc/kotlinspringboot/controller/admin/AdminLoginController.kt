@@ -14,6 +14,7 @@ import pres.hjc.kotlinspringboot.entity.UserModel
 import pres.hjc.kotlinspringboot.service.impl.UserServiceImpl
 import pres.hjc.kotlinspringboot.target.Logs
 import pres.hjc.kotlinspringboot.tools.ConstantUtils
+import pres.hjc.kotlinspringboot.tools.CookieUtils
 import pres.hjc.kotlinspringboot.tools.PublicToolsUtils
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -65,6 +66,7 @@ class AdminLoginController {
             /*val userModel = userServiceImpl.queryAdminId(name, password, request, response) ?: return "fail"
             request.session.setAttribute("user",userModel)*/
         }
+        CookieUtils.addCookie(response,ConstantUtils.SESSION_TOKEN,PublicToolsUtils.getUUID(),60*60*24*7)
         return "success"
     }
 

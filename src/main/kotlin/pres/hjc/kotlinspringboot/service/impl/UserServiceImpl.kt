@@ -14,6 +14,7 @@ import pres.hjc.kotlinspringboot.service.UserService
 import pres.hjc.kotlinspringboot.tools.ConstantUtils
 import pres.hjc.kotlinspringboot.tools.CookieUtils
 import pres.hjc.kotlinspringboot.tools.PublicToolsUtils
+import java.util.*
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
@@ -41,6 +42,12 @@ class UserServiceImpl:UserService {
         //密码加盐
         var password = userModel.password ?: "123456"
         password = PublicToolsUtils.md5Two(password + ConstantUtils.PASSWORD_HEAD)!!
+        //birthday
+        //create date
+        val createDate = PublicToolsUtils.dateLong()
+        val createDate2 = PublicToolsUtils.dateFormat(Date())
+
+        var admin = 0
         userModel.password = password
         return userInfoMapping.addUserInfo(userModel)
     }

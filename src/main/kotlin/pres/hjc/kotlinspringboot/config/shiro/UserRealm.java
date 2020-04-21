@@ -39,7 +39,7 @@ public class UserRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 //        info.addStringPermission("post2");
 
-        //得到当前用户对象，
+        //得到当前用户对象
         Subject subject = SecurityUtils.getSubject();
         //user
         UserModel userModel = (UserModel) subject.getPrincipal();

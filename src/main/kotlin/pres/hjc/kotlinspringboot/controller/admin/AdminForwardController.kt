@@ -43,7 +43,7 @@ class AdminForwardController {
     fun adminIndex(request: HttpServletRequest):String {
         val sessionToken = CookieUtils.getCookie(request,"SESSION_TOKEN")
         if (sessionToken == null) {
-            return "redirect:/admin/login.html"
+            return "redirect:/admins/login.html"
         } else {
             return "admin/index"
         }
@@ -94,4 +94,50 @@ class AdminForwardController {
         }
         return "success"
     }
+
+    @GetMapping("charts$suf")
+    fun charts():String = "admin/charts"
+
+    @GetMapping("form-basic$suf")
+    fun formsb():String = "admin/form-basic"
+
+    @GetMapping("form-wizard$suf")
+    fun formsw():String = "admin/form-wizard"
+
+    @GetMapping("grid$suf")
+    fun grid():String = "admin/grid"
+
+    @GetMapping("icon-fontawesome$suf")
+    fun iconf():String = "admin/icon-fontawesome"
+
+    @GetMapping("icon-material$suf")
+    fun iconm():String = "admin/icon-material"
+
+    @GetMapping("index2$suf")
+    fun index2():String = "admin/index2"
+
+    @GetMapping("pages-buttons$suf")
+    fun button():String = "admin/pages-buttons"
+
+    @GetMapping("pases-calendar$suf")
+    fun calendar():String = "admin/pages-calendar"
+
+    @GetMapping("pages-chat$suf")
+    fun chat():String = "admin/pages-chat"
+
+    @GetMapping("pages-elements$suf")
+    fun elements():String = "admin/pages-elements"
+
+    @GetMapping("pages-gallery$suf")
+    fun gallery():String = "admin/pages-gallery"
+
+    @GetMapping("pages-invoice$suf")
+    fun invoice():String = "admin/pages-invoice"
+
+    @GetMapping("tables$suf")
+    fun tables():String = "admin/tables"
+
+    @GetMapping("widgets$suf")
+    fun widgets():String = "admin/widgets"
+
 }
