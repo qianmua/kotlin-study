@@ -79,8 +79,8 @@ spring:
         login-password: 123456
 
   mail:
-    username: 2174521520@qq.com
-    password: trcaruhsmfgqdiah
+    username: 2074521520@qq.com
+    password:
     host: smtp.qq.com
     properties:
       mail:
@@ -93,10 +93,10 @@ spring:
       max-request-size: 150MB
 
   rabbitmq:
-    host: 47.96.230.44
+    host:
     port: 5672
-    username: guest
-    password: my_guest1.
+    username: gues
+    password: my_gues.
     # 虚拟host 可以不设置 有默认。
     #virtual-host:
     # 消息回调设置
@@ -118,7 +118,7 @@ logging:
 upload:
   qiniu:
     domain: q83mxlgqb.bkt.clouddn.com
-    access-key: adSzsDk3JrkTjCWVXB0P0m_kG3tk908Y27zSqFlb
-    secret-key: metQTgcHql-mtxtfXRJiUhycmGrGZumxE-sjD8bq
+    access-key:
+    secret-key:
     bucket: data-cache-qiniu-any
 

@@ -180,6 +180,8 @@
             <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
 
+        <!-- 阿里云 短信接口-->
+
 	</dependencies>
 
 	<build>
